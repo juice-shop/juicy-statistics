@@ -9,7 +9,6 @@
     "lint": "eslint extractors/*.js public/*.js ./*.js",
     "lint:fix": "eslint extractors/*.js public/*.js ./*.js"
   },
-  "author": "Ayas Behera",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.6",
