@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <style>
+        #top_x_div {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #sf {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+        }
+
+        body {
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        let npm = "<%=npm%>"
+        let sf = "<%=sourceForge%>"
+    </script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <h1>Stats for Juice-shop</h1>
+    This Graph shows the npm downloads for the juice-shop-ctf-cli package.
+    <br /><br />
+    <div id="top_x_div"></div>
+    <br /><br />
+    This Graph shows the Source Forge downloads for the juice-shop app.
+    <br /><br />
+    <div id="sf"></div>
+</body>
+
+</html>
