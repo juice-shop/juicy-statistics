@@ -1,6 +1,6 @@
 const express = require('express')
 var path = require('path')
-const statsSf = require('./extractors/sourceFourge')
+const statsSf = require('./extractors/sourceForge')
 const statsNpm = require('./extractors/npm')
 const { env } = require('process')
 
