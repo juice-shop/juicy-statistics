@@ -37,8 +37,8 @@ const collectData = async () => {
         }
     )
 
-    githubDataJs[date] = {}
-    githubDataJsCtf[date] = {}
+    githubDataJs[date] = []
+    githubDataJsCtf[date] = []
 
     for(let i=0;i<dataJs.length;i++){
         let tag = dataJs[i].name
@@ -46,7 +46,7 @@ const collectData = async () => {
         for(let j=0;j<dataJs[i].assets.length;j++){
             downloads += dataJs[i].assets[j].download_count
         }
-        githubDataJs[date][tag] = downloads - (prevJsData[tag] || 0)
+        githubDataJs[date].push([tag,downloads - (prevJsData[tag] || 0) ])
     }
 
     githubDataJs = JSON.stringify(githubDataJs)
@@ -58,7 +58,7 @@ const collectData = async () => {
         for(let j=0;j<dataJsCtf[i].assets.length;j++){
             downloads += dataJsCtf[i].assets[j].download_count
         }
-        githubDataJsCtf[date][tag] = downloads - (prevJsCtfData[tag] || 0)
+        githubDataJsCtf[date].push([tag,downloads - (prevJsCtfData[tag] || 0) ])
     }
 
     githubDataJsCtf = JSON.stringify(githubDataJsCtf)
