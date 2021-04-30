@@ -9,7 +9,6 @@ const extractStats = async (startDate, endDate) => {
     ).then(
         (data) => {
             downloads = data.downloads
-            console.log(data)
         }
     )
 
