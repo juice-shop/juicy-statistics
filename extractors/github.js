@@ -60,7 +60,6 @@ const collectData = async () => {
         }
         githubDataJsCtf[date][tag] = downloads - (prevJsCtfData[tag] || 0)
     }
-    console.log(githubDataJsCtf)
 
     githubDataJsCtf = JSON.stringify(githubDataJsCtf)
 
