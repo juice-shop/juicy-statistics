@@ -12,14 +12,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/',async (req,res) => {
 
+    let startDate = new Date(Date.now())
+    startDate.setDate(startDate.getDate() - 30)
+    startDate = `${startDate.toISOString().split('T')[0]}`
+    let endDate = new Date(Date.now())
+    endDate = `${endDate.toISOString().split('T')[0]}`
+
     let sourceForge 
-    await statsSf('2021-03-28','2021-04-28').then(
+    await statsSf(startDate,endDate).then(
         (data) => {
             sourceForge = data
         }
     )
     let npm
-    await statsNpm('2021-03-28','2021-04-28').then(
+    await statsNpm(startDate,endDate).then(
         (data) => {
             npm = data
         }
