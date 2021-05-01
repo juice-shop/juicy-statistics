@@ -37,8 +37,8 @@ const collectData = async () => {
         }
     )
 
-    dockerDataJs[date] = dataJs.pull_count - (prevJsData[prevDate] || 0)
-    dockerDataJsCtf[date] = dataJsCtf.pull_count - (prevJsCtfData[prevDate] || 0)
+    dockerDataJs[date] = [dataJs.pull_count - (prevJsData[1] || 0 ), dataJs.pull_count]
+    dockerDataJsCtf[date] = [dataJsCtf.pull_count - (prevJsCtfData[1] || 0 ), dataJsCtf.pull_count]
 
     dockerDataJs = JSON.stringify(dockerDataJs)
     fs.writeFileSync('statsData/dockerJs.json',dockerDataJs)
@@ -47,4 +47,4 @@ const collectData = async () => {
     fs.writeFileSync('statsData/dockerJsCtf.json',dockerDataJsCtf)
 }
 
-collectData()
+module.exports.collect = collectData
