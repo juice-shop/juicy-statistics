@@ -13,13 +13,15 @@ function drawStuff() {
 
 
     let options = {
+        is3d: true,
         title: 'Npm Downloads for juice-shop-ctf-cli',
-        width: 900,
-        length: 500,
+        colors: ['rgb(255, 81, 0)'],
+        width: 400,
+        length: 300,
         legend: { position: 'none' },
         chart: {
-            title: 'Downloads for juice-shop-ctf-cli',
-            subtitle: 'Npm'
+            // title: 'Downloads for juice-shop-ctf-cli',
+            // subtitle: 'Npm'
         },
         bars: 'vertical',
         axes: {
@@ -47,13 +49,14 @@ function drawStuff() {
 
     options = {
 
-        title: 'SourceForge Downloads for juice-shop-ctf-cli',
-        width: 900,
-        length: 500,
+        title: 'SourceForge Downloads for juice-shop',
+        colors:['rgb(255, 81, 0)'],
+        width: 400,
+        length: 300,
         legend: { position: 'none' },
         chart: {
-            title: 'Sourceforge downloads for the juice-shop app',
-            subtitle: 'Source Forge'
+            // title: 'Sourceforge downloads for the juice-shop app',
+            // subtitle: 'Source Forge'
         },
         bars: 'vertical',
         axes: {

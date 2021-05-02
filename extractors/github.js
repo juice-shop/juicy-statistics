@@ -1,15 +1,15 @@
 const fetch = require('node-fetch')
 const fs = require('fs')
 
-let githubDataJs = fs.readFileSync('statsData/githubJs.json')
-githubDataJs =  githubDataJs.toString()
-githubDataJs = JSON.parse(githubDataJs)
-let githubDataJsCtf = fs.readFileSync('statsData/githubJsCtf.json')
-githubDataJsCtf = JSON.parse(githubDataJsCtf)
 const urlJs = 'https://api.github.com/repos/bkimminich/juice-shop/releases'
 const urlJsCtf = 'https://api.github.com/repos/bkimminich/juice-shop-ctf/releases'
 
 const collectData = async () => {
+    let githubDataJs = fs.readFileSync('statsData/githubJs.json')
+    githubDataJs =  githubDataJs.toString()
+    githubDataJs = JSON.parse(githubDataJs)
+    let githubDataJsCtf = fs.readFileSync('statsData/githubJsCtf.json')
+    githubDataJsCtf = JSON.parse(githubDataJsCtf)
     let date = new Date(Date.now()).toISOString().split('T')[0]
     let prevDate = new Date(Date.now())
     prevDate.setDate(prevDate.getDate() -1)
@@ -66,4 +66,21 @@ const collectData = async () => {
     fs.writeFileSync('statsData/githubJsCtf.json',githubDataJsCtf)
 }
 
+const fetchData = (startDate,endDate ) => {
+
+    let githubDataJs = fs.readFileSync('statsData/githubJs.json')
+    githubDataJs =  githubDataJs.toString()
+    githubDataJs = JSON.parse(githubDataJs)
+    let githubDataJsCtf = fs.readFileSync('statsData/githubJsCtf.json')
+    githubDataJsCtf = JSON.parse(githubDataJsCtf)
+
+    // let data = {}
+
+    return {
+        jsData: githubDataJs,
+        jsCtfData: githubDataJsCtf
+    }
+
+}
 module.exports.collect = collectData
+module.exports.fetchData = fetchData

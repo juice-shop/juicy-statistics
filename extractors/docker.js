@@ -1,15 +1,15 @@
 const fetch = require('node-fetch')
 const fs = require('fs')
 
-let dockerDataJs = fs.readFileSync('statsData/dockerJs.json')
-dockerDataJs =  dockerDataJs.toString()
-dockerDataJs = JSON.parse(dockerDataJs)
-let dockerDataJsCtf = fs.readFileSync('statsData/dockerJsCtf.json')
-dockerDataJsCtf = JSON.parse(dockerDataJsCtf)
 const urlJs = 'https://registry.hub.docker.com/v2/repositories/bkimminich/juice-shop/'
 const urlJsCtf = 'https://registry.hub.docker.com/v2/repositories/bkimminich/juice-shop-ctf/'
 
 const collectData = async () => {
+    let dockerDataJs = fs.readFileSync('statsData/dockerJs.json')
+    dockerDataJs =  dockerDataJs.toString()
+    dockerDataJs = JSON.parse(dockerDataJs)
+    let dockerDataJsCtf = fs.readFileSync('statsData/dockerJsCtf.json')
+    dockerDataJsCtf = JSON.parse(dockerDataJsCtf)
     let date = new Date(Date.now()).toISOString().split('T')[0]
     let prevDate = new Date(Date.now())
     prevDate.setDate(prevDate.getDate() -1)
@@ -47,4 +47,19 @@ const collectData = async () => {
     fs.writeFileSync('statsData/dockerJsCtf.json',dockerDataJsCtf)
 }
 
+const fetchData = (startDate,endDate) => {
+    let dockerDataJs = fs.readFileSync('statsData/dockerJs.json')
+    dockerDataJs =  dockerDataJs.toString()
+    dockerDataJs = JSON.parse(dockerDataJs)
+    let dockerDataJsCtf = fs.readFileSync('statsData/dockerJsCtf.json')
+    dockerDataJsCtf = JSON.parse(dockerDataJsCtf)
+
+    return {
+        jsData: dockerDataJs,
+        jsCtfData: dockerDataJsCtf
+    }
+
+}
+
 module.exports.collect = collectData
+module.exports.fetchData = fetchData
