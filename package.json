@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "lint": "eslint extractors/*.js public/*.js ./*.js",
-    "collect":"node extractors/collect.js",
+    "collect": "node extractors/collect.js",
     "lint:fix": "eslint --fix extractors/*.js public/*.js ./*.js"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
