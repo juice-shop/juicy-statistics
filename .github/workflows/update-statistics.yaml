@@ -8,21 +8,20 @@ jobs:
   collect:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Collect stats data from github and docker
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run collect
-    - name: Get current date
+    - name: "Get current date"
       id: date
       run: echo "name=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+    - name: "Check out Git repository"
+      uses: actions/checkout@v2
+    - name: "Use Node.js 14"
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - name: "Install stats collector"
+      run: npm install
+    - name: "Collect statistics from ${{ steps.date.outputs.date }}"
+      run: npm run collect
     - uses: stefanzweifel/git-auto-commit-action@v4.0.0
       with:
         commit_message: "Persist statistics collected on ${{ steps.date.outputs.date }}"
