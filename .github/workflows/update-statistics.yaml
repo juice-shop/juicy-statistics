@@ -1,8 +1,6 @@
 name: "Update Juice Shop ecosystem statistics"
 
-on:
-  schedule:
-    - cron: '*/5 * * * *'
+on: [push]
 
 jobs:
   collect:
