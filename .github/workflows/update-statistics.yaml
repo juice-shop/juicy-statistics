@@ -1,11 +1,11 @@
-name: Node.js stats collector
+name: "Update Juice Shop ecosystem statistics"
 
 on:
   schedule:
     - cron: '0 0 * * *'
 
 jobs:
-  build:
+  collect:
     runs-on: ubuntu-latest
 
     strategy:
@@ -31,3 +31,17 @@ jobs:
         commit_user_name: JuiceShopBot
         commit_user_email: 61591748+JuiceShopBot@users.noreply.github.com
         commit_author: JuiceShopBot <61591748+JuiceShopBot@users.noreply.github.com>
+  heroku:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: [collect]
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out Git repository"
+        uses: actions/checkout@v2
+      - name: "Deploy to Heroku"
+        uses: akhileshns/heroku-deploy@v3.7.8
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: juicy-statistics
+          heroku_email: bjoern.kimminich@owasp.org
+          branch: master
