@@ -1,6 +1,6 @@
 # OWASP Juice Shop Statistics
 
-![meme](https://memegenerator.net/img/instances/81777446/holy-metrics-batman-those-are-some-hotter-and-juicier-stats.jpg)
+<https://stats.owasp-juice.shop/>
 
 ## Licensing
 
