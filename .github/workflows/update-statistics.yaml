@@ -19,7 +19,7 @@ jobs:
         node-version: 14
     - name: "Install stats collector"
       run: npm install
-    - name: "Collect statistics from ${{ steps.date.outputs.date }}"
+    - name: "Collect statistics"
       run: npm run collect
     - uses: stefanzweifel/git-auto-commit-action@v4.0.0
       with:
