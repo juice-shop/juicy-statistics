@@ -55,9 +55,7 @@ const fetchData = (startDate,endDate ) => {
 
     // let data = {}
 
-    return {
-        jsData: githubDataJs
-    }
+    return githubDataJs
 
 }
 module.exports.collect = collectData

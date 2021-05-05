@@ -24,12 +24,7 @@ app.get('/',async (req,res) => {
             sourceForge = data
         }
     )
-    let npm
-    await statsNpm(startDate,endDate).then(
-        (data) => {
-            npm = data
-        }
-    )
+    let npm = statsNpm.getStats()
 
 
     res.render('index.ejs',{
