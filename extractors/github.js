@@ -8,15 +8,12 @@ const collectData = async () => {
     let githubDataJs = fs.readFileSync('statsData/githubJs.json')
     githubDataJs =  githubDataJs.toString()
     githubDataJs = JSON.parse(githubDataJs)
-    let githubDataJsCtf = fs.readFileSync('statsData/githubJsCtf.json')
-    githubDataJsCtf = JSON.parse(githubDataJsCtf)
     let date = new Date(Date.now()).toISOString().split('T')[0]
     let prevDate = new Date(Date.now())
     prevDate.setDate(prevDate.getDate() -1)
     prevDate = prevDate.toISOString().split('T')[0]
 
     let prevJsData = githubDataJs[prevDate] || {}
-    let prevJsCtfData = githubDataJsCtf[prevDate] || {}
     
 
     let dataJs
@@ -28,17 +25,7 @@ const collectData = async () => {
         }
     )
 
-    let dataJsCtf
-    await fetch(urlJsCtf).then(
-        (data) => data.json()
-    ).then(
-        (data) => {
-            dataJsCtf = data
-        }
-    )
-
     githubDataJs[date] = []
-    githubDataJsCtf[date] = []
 
     for(let i=0;i<dataJs.length;i++){
         let tag = dataJs[i].name
@@ -46,24 +33,18 @@ const collectData = async () => {
         for(let j=0;j<dataJs[i].assets.length;j++){
             downloads += dataJs[i].assets[j].download_count
         }
-        githubDataJs[date].push([tag,downloads - (prevJsData[i][2] || 0) , downloads])
+        let prev_downloads = 0
+        for(let j=0;j<prevJsData.length;j++){
+            if(prevJsData[i][0] === tag){
+                prev_downloads = prevJsData[i][2]
+            }
+        }
+
+        githubDataJs[date].push([tag,downloads - (prev_downloads || 0) , downloads])
     }
 
     githubDataJs = JSON.stringify(githubDataJs)
     fs.writeFileSync('statsData/githubJs.json',githubDataJs)
-
-    for(let i=0;i<dataJsCtf.length;i++){
-        let tag = dataJsCtf[i].name
-        let downloads = 0
-        for(let j=0;j<dataJsCtf[i].assets.length;j++){
-            downloads += dataJsCtf[i].assets[j].download_count
-        }
-        githubDataJsCtf[date].push([tag,downloads - (prevJsCtfData[i][2] || 0) ,downloads])
-    }
-
-    githubDataJsCtf = JSON.stringify(githubDataJsCtf)
-
-    fs.writeFileSync('statsData/githubJsCtf.json',githubDataJsCtf)
 }
 
 const fetchData = (startDate,endDate ) => {
@@ -71,14 +52,11 @@ const fetchData = (startDate,endDate ) => {
     let githubDataJs = fs.readFileSync('statsData/githubJs.json')
     githubDataJs =  githubDataJs.toString()
     githubDataJs = JSON.parse(githubDataJs)
-    let githubDataJsCtf = fs.readFileSync('statsData/githubJsCtf.json')
-    githubDataJsCtf = JSON.parse(githubDataJsCtf)
 
     // let data = {}
 
     return {
-        jsData: githubDataJs,
-        jsCtfData: githubDataJsCtf
+        jsData: githubDataJs
     }
 
 }
