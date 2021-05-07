@@ -2,6 +2,7 @@ const express = require('express')
 var path = require('path')
 const statsSf = require('./extractors/sourceForge')
 const statsNpm = require('./extractors/npm')
+const docker = require('./extractors/docker')
 const { env } = require('process')
 
 const app = express()
@@ -25,11 +26,14 @@ app.get('/',async (req,res) => {
         }
     )
     let npm = statsNpm.getStats()
+    let dockerData = docker.fetchData()
 
 
     res.render('index.ejs',{
         sourceForge: sourceForge,
-        npm: npm
+        npm: npm,
+        dockerJs: dockerData.jsData,
+        dockerJsCtf: dockerData.jsCtfData
     })
 
     

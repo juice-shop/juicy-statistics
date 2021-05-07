@@ -47,7 +47,7 @@ const collectData = async () => {
     fs.writeFileSync('statsData/githubJs.json',githubDataJs)
 }
 
-const fetchData = (startDate,endDate ) => {
+const fetchData = () => {
 
     let githubDataJs = fs.readFileSync('statsData/githubJs.json')
     githubDataJs =  githubDataJs.toString()

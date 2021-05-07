@@ -47,16 +47,29 @@ const collectData = async () => {
     fs.writeFileSync('statsData/dockerJsCtf.json',dockerDataJsCtf)
 }
 
-const fetchData = (startDate,endDate) => {
+const fetchData = () => {
     let dockerDataJs = fs.readFileSync('statsData/dockerJs.json')
     dockerDataJs =  dockerDataJs.toString()
     dockerDataJs = JSON.parse(dockerDataJs)
     let dockerDataJsCtf = fs.readFileSync('statsData/dockerJsCtf.json')
     dockerDataJsCtf = JSON.parse(dockerDataJsCtf)
 
+    let datesJs = Object.getOwnPropertyNames(dockerDataJs)
+    let datesJsCtf = Object.getOwnPropertyNames(dockerDataJsCtf)
+
+    let dataJs = []
+    let dataJsCtf = []
+
+    for(const date of datesJs){
+        dataJs.push([date,dockerDataJs[date][0]])
+    }
+
+    for(const date of datesJsCtf){
+        dataJsCtf.push([date,dockerDataJsCtf[date][0]])
+    }
     return {
-        jsData: dockerDataJs,
-        jsCtfData: dockerDataJsCtf
+        jsData: dataJs,
+        jsCtfData: dataJsCtf
     }
 
 }
