@@ -41,6 +41,15 @@
             overflow-x: scroll;
         }
 
+        #gh {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            overflow-x: scroll;
+        }
+
         body {
             text-align: center;
         }
@@ -55,6 +64,9 @@
         let sf = "<%=sourceForge%>"
         let docJs = "<%=dockerJs%>"
         let docJsCtf = "<%=dockerJsCtf%>"
+        let github = "<%=github%>"
+        let githubReleases = "<%=githubReleases%>"
+        githubReleases = parseInt(githubReleases,10)
     </script>
     <script type="text/javascript" src="script.js"></script>
 </head>
@@ -128,6 +140,21 @@
                     </div>
                   </div>
                   </div>
+                  <br/><br/>
+                  <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            This Graph shows the Docker pulls for the juice-shop Ctf Extension.
+                        </div>
+                        <div class="card-body">
+                          <!-- <h5 class="card-title">Special title treatment</h5> -->
+                          <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                            <br /><br />
+                            <div id="gh"></div>
+                        </div>
+                      </div>
+                      </div>
     <br/><br/>
 </body>
 
