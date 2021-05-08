@@ -1,5 +1,7 @@
 const fetch = require('node-fetch')
 const fs = require('fs')
+const { release } = require('os')
+const { isBuffer } = require('util')
 
 const urlJs = 'https://api.github.com/repos/bkimminich/juice-shop/releases'
 const urlJsCtf = 'https://api.github.com/repos/juice-shop/juice-shop-ctf/releases'
@@ -53,10 +55,36 @@ const fetchData = () => {
     githubDataJs =  githubDataJs.toString()
     githubDataJs = JSON.parse(githubDataJs)
 
-    // let data = {}
+    let data = []
+    let dates = Object.getOwnPropertyNames(githubDataJs)
+    let releases = []
+    for(let i=0;i<githubDataJs[dates[dates.length -1]].length;i++){
+        releases.push(githubDataJs[dates[dates.length - 1]][i][0])
+    }
+    data.push(releases)
 
-    return githubDataJs
+    for(const date of dates){
+        let currData = [date]
+        for(const release of releases){
+            let done = false
+            for(const data of githubDataJs[date]){
+                if(data[0] === release){
+                    currData.push(data[1])
+                    done=true
+                    break
+                }
+            }
+            if(!done) currData.push(0)
+        }
 
+        data.push(currData)
+
+    }
+    return {
+        data: data,
+        releases: releases.length
+    }
+    
 }
 module.exports.collect = collectData
 module.exports.fetchData = fetchData

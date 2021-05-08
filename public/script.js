@@ -1,4 +1,6 @@
-google.charts.load('current', { 'packages': ['bar'] });
+google.charts.load('current', { 'packages': ['bar'] })
+google.charts.load('current', {'packages':['corechart']})
+
 google.charts.setOnLoadCallback(drawStuff);
 
 function options(label){
@@ -85,6 +87,45 @@ function drawStuff() {
 
     chart = new google.charts.Bar(document.getElementById('docJsCtf'))
     chart.draw(data, options('Docker Pulls for the juice-shop Ctf extension'))
-
     // Docker Juice-shop Ctf ----
+
+    // Github Juice-shop ----
+
+    // console.log(github)
+
+    github = github.split(',')
+    let githubData = []
+    let releases = ["Date"]
+    for(let i=0;i<githubReleases;i++){
+        releases.push(github[i])
+    }
+    githubData.push(releases)
+    for(let i=githubReleases;i<github.length;i++){
+        let currData = []
+        let x=i
+        let done=false
+        for(let j=i;j<=x+githubReleases && j<github.length;j++){
+            if(done) currData.push(parseInt(github[j],10))
+            else currData.push(github[j])
+            done=true
+            i=j
+        }
+
+        githubData.push(currData)
+    }
+    // console.log(github)
+    // console.log(githubData)
+    data = new google.visualization.arrayToDataTable(githubData)
+    let op = {
+        title : 'Github Downloads of juice-shop',
+        vAxis: {title: 'Downloads'},
+        hAxis: {title: 'Date'},
+        seriesType: 'bars',
+        series: {30: {type: 'line'}}
+      }
+
+    chart = new google.visualization.ComboChart(document.getElementById('gh'))
+    chart.draw(data, op)
+    // Github Juice-shop ----
+    
 };
