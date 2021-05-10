@@ -1,7 +1,5 @@
 const fetch = require('node-fetch')
 const fs = require('fs')
-const { release } = require('os')
-const { isBuffer } = require('util')
 
 const urlJs = 'https://api.github.com/repos/bkimminich/juice-shop/releases'
 const urlJsCtf = 'https://api.github.com/repos/juice-shop/juice-shop-ctf/releases'

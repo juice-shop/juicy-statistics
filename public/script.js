@@ -1,18 +1,34 @@
 google.charts.load('current', { 'packages': ['bar'] })
 google.charts.load('current', {'packages':['corechart']})
 
-google.charts.setOnLoadCallback(drawStuff);
+google.charts.setOnLoadCallback(drawStuff)
+
+const adjust = () => {
+    let width
+    if(window.innerWidth <= 900){
+        width = "100%"
+    }
+    else{
+        width = "50%"
+    }
+
+    let graphs = document.getElementsByClassName('graph')
+    for(const graph of graphs){
+        graph.style.width = width
+    }
+
+}
 
 function options(label){
     let op = {
         is3d: true,
         title: label,
-        colors: ['rgb(255, 81, 0)'],
+        // colors: ['rgb(255, 81, 0)'],
         width: 400,
         length: 300,
         legend: { position: 'none' },
         chart: {
-            // title: 'Downloads for juice-shop-ctf-cli',
+            title: label,
             // subtitle: 'Npm'
         },
         bars: 'vertical',
@@ -33,6 +49,7 @@ function options(label){
 function drawStuff() {
 
     //  Npm ----
+    adjust()
     npm = npm.split(',')
     let npmData = []
     npmData.push(['Date', 'Downloads'])
@@ -55,9 +72,14 @@ function drawStuff() {
     }
     // console.log(sfData)
     data = new google.visualization.arrayToDataTable(sfData)
+    let sfOptions = {
+        title: 'Source Forge Downloads',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
 
-    chart = new google.charts.Bar(document.getElementById('sf'))
-    chart.draw(data, options('SourceForge Downloads for juice-shop'))
+    chart = new google.visualization.LineChart(document.getElementById('sf'));
+    chart.draw(data, sfOptions)
     // SourceForge ----
 
     // Docker Juice-shop ----
@@ -129,3 +151,7 @@ function drawStuff() {
     // Github Juice-shop ----
     
 };
+
+
+document.onload = adjust
+window.onresize = adjust
