@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/',async (req,res) => {
 
     let startDate = new Date(Date.now())
-    startDate.setDate(startDate.getDate() - 30)
+    startDate.setDate(startDate.getDate() - 90)
     startDate = `${startDate.toISOString().split('T')[0]}`
     let endDate = new Date(Date.now())
     endDate = `${endDate.toISOString().split('T')[0]}`

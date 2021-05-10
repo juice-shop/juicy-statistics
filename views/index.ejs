@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     <style>
-        #npm {
+        .box{
             position: relative;
             width: 100%;
             height: 500px;
@@ -14,44 +14,26 @@
             overflow-x: scroll;
         }
 
-        #sf {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            overflow-x: scroll;
+        .graph{
+          width: 50%;
+          float:left;
+          margin:0;
+          margin-bottom: 5px;
         }
 
-        #docJs {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            overflow-x: scroll;
-        }
-
-        #docJsCtf {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            overflow-x: scroll;
-        }
-
-        #gh {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            overflow-x: scroll;
+        .wide{
+          width: 100%;
+          float:left;
+          margin:0;
+          /* margin-left:2%;
+          margin-right: 2%;
+          margin-bottom: 5px; */
+          padding:1rem 1rem;
         }
 
         body {
             text-align: center;
+            /* background-color: #212529; */
         }
 
         .card{
@@ -81,80 +63,66 @@
         </div>
     </nav>
     <br /><br />
-    <div class="container">
+    <div class="wide" >
+      <div class="card">
+          <!-- <div class="card-header">
+              This Graph shows the Source Forge downloads for the juice-shop app.
+          </div> -->
+          <div class="card-body">
+              <br /><br />
+              <div id="sf" class="box"></div>
+          </div>
+      </div>
+    </div>
+    <div class="container graph">
+      <div class="card">
+          <!-- <div class="card-header">
+              This Graph shows the Github downloads for the juice-shop app
+          </div> -->
+          <div class="card-body">
+              <br /><br />
+              <div id="gh" class="box"></div>
+          </div>
+      </div>
+    </div>
+        <!-- <br/><br/> -->
+    <div class="container graph">
     <div class="card">
-        <div class="card-header">
+        <!-- <div class="card-header">
             This Graph shows the npm downloads for the juice-shop-ctf-cli package.
-        </div>
+        </div> -->
         <div class="card-body">
-          <!-- <h5 class="card-title">Special title treatment</h5> -->
-          <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             <br /><br />
-            <div id="npm"></div>
+            <div id="npm" class="box"></div>
         </div>
       </div>
       </div>
-      <br /><br />
-      <div class="container">
-        <div class="card">
-            <div class="card-header">
-                This Graph shows the Source Forge downloads for the juice-shop app.
-            </div>
-            <div class="card-body">
-              <!-- <h5 class="card-title">Special title treatment</h5> -->
-              <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                <br /><br />
-                <div id="sf"></div>
-            </div>
-          </div>
-          </div>
-          <br/><br/>
-          <div class="container">
+      <!-- <br /><br /> -->
+          <!-- <br/><br/> -->
+          <div class="container graph">
             <div class="card">
-                <div class="card-header">
+                <!-- <div class="card-header">
                     This Graph shows the Docker pulls for the juice-shop app.
-                </div>
+                </div> -->
                 <div class="card-body">
-                  <!-- <h5 class="card-title">Special title treatment</h5> -->
-                  <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                     <br /><br />
-                    <div id="docJs"></div>
+                    <div id="docJs" class="box"></div>
                 </div>
               </div>
               </div>
-              <br/><br/>
-              <div class="container">
+              <!-- <br/><br/> -->
+              <div class="container graph">
                 <div class="card">
-                    <div class="card-header">
+                    <!-- <div class="card-header">
                         This Graph shows the Docker pulls for the juice-shop Ctf Extension.
-                    </div>
+                    </div> -->
                     <div class="card-body">
-                      <!-- <h5 class="card-title">Special title treatment</h5> -->
-                      <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         <br /><br />
-                        <div id="docJsCtf"></div>
+                        <div id="docJsCtf" class="box"></div>
                     </div>
                   </div>
                   </div>
                   <br/><br/>
-                  <div class="container">
-                    <div class="card">
-                        <div class="card-header">
-                            This Graph shows the Github downloads for the juice-shop app
-                        </div>
-                        <div class="card-body">
-                          <!-- <h5 class="card-title">Special title treatment</h5> -->
-                          <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
-                          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            <br /><br />
-                            <div id="gh"></div>
-                        </div>
-                      </div>
-                      </div>
     <br/><br/>
 </body>
 
