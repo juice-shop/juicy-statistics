@@ -34,7 +34,7 @@ function options(label){
         bars: 'vertical',
         axes: {
             x: {
-                0: { side: 'bottom', label: 'Dates' }
+                0: { side: 'bottom', label: 'Date' }
             },
             y: {
                 0: { side: 'left', label: 'Downloads' }
@@ -60,7 +60,7 @@ function drawStuff() {
     let data = new google.visualization.arrayToDataTable(npmData)
 
     let chart = new google.charts.Bar(document.getElementById('npm'))
-    chart.draw(data, options('Npm Downloads for juice-shop-ctf-cli'))
+    chart.draw(data, options('npm downloads (juice-shop-ctf-cli)'))
     // Npm ----
 
     // SourceForge ----
@@ -73,7 +73,7 @@ function drawStuff() {
     // console.log(sfData)
     data = new google.visualization.arrayToDataTable(sfData)
     let sfOptions = {
-        title: 'Source Forge Downloads',
+        title: 'SourceForge downloads (juice-shop)',
         curveType: 'function',
         legend: { position: 'bottom' }
       };
@@ -93,7 +93,7 @@ function drawStuff() {
     data = new google.visualization.arrayToDataTable(docJsData)
 
     chart = new google.charts.Bar(document.getElementById('docJs'))
-    chart.draw(data, options('Docker Pulls for the juice-shop'))
+    chart.draw(data, options('Docker pulls (bkimminich/juice-shop)'))
 
     // Docker Juice-shop ----
 
@@ -108,7 +108,7 @@ function drawStuff() {
     data = new google.visualization.arrayToDataTable(docJsCtfData)
 
     chart = new google.charts.Bar(document.getElementById('docJsCtf'))
-    chart.draw(data, options('Docker Pulls for the juice-shop Ctf extension'))
+    chart.draw(data, options('Docker pulls (bkimminich/juice-shop-ctf)'))
     // Docker Juice-shop Ctf ----
 
     // Github Juice-shop ----
@@ -139,7 +139,7 @@ function drawStuff() {
     // console.log(githubData)
     data = new google.visualization.arrayToDataTable(githubData)
     let op = {
-        title : 'Github Downloads of juice-shop',
+        title : 'GitHub release downloads (juice-shop)',
         vAxis: {title: 'Downloads'},
         hAxis: {title: 'Date'},
         seriesType: 'bars',
