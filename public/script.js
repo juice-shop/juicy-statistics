@@ -89,7 +89,7 @@ function drawStuff() {
     for (let i = 0; i < docJs.length; i += 2) {
         docJsData.push([docJs[i], parseInt(docJs[i + 1], 10)])
     }
-    console.log(docJsData)
+    // console.log(docJsData)
     data = new google.visualization.arrayToDataTable(docJsData)
 
     chart = new google.charts.Bar(document.getElementById('docJs'))
@@ -125,25 +125,28 @@ function drawStuff() {
     for(let i=githubReleases;i<github.length;i++){
         let currData = []
         let x=i
-        let done=false
+        let isDateColumn = true
         for(let j=i;j<=x+githubReleases && j<github.length;j++){
-            if(done) currData.push(parseInt(github[j],10))
-            else currData.push(github[j])
-            done=true
+            if(isDateColumn) {
+                currData.push(github[j])
+            } else {
+                const dailyDownloads = parseInt(github[j],10)
+                currData.push(dailyDownloads)
+            }
+            isDateColumn = false
             i=j
         }
-
         githubData.push(currData)
     }
     // console.log(github)
-    // console.log(githubData)
+    console.log(githubData)
     data = new google.visualization.arrayToDataTable(githubData)
     let op = {
         title : 'GitHub release downloads (juice-shop)',
         vAxis: {title: 'Downloads'},
         hAxis: {title: 'Date'},
         seriesType: 'bars',
-        series: {30: {type: 'line'}}
+        isStacked: true
       }
 
     chart = new google.visualization.ComboChart(document.getElementById('gh'))
