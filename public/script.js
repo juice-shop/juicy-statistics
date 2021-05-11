@@ -72,14 +72,12 @@ function drawStuff() {
     }
     // console.log(sfData)
     data = new google.visualization.arrayToDataTable(sfData)
-    let sfOptions = {
+    chart = new google.visualization.LineChart(document.getElementById('sf'));
+    chart.draw(data, {
         title: 'SourceForge downloads (juice-shop)',
         curveType: 'function',
         legend: { position: 'bottom' }
-      };
-
-    chart = new google.visualization.LineChart(document.getElementById('sf'));
-    chart.draw(data, sfOptions)
+    })
     // SourceForge ----
 
     // Docker Juice-shop ----
@@ -139,18 +137,16 @@ function drawStuff() {
         githubData.push(currData)
     }
     // console.log(github)
-    console.log(githubData)
+    // console.log(githubData)
     data = new google.visualization.arrayToDataTable(githubData)
-    let op = {
-        title : 'GitHub release downloads (juice-shop)',
-        vAxis: {title: 'Downloads'},
-        hAxis: {title: 'Date'},
+    chart = new google.visualization.ComboChart(document.getElementById('gh'))
+    chart.draw(data, {
+        title: 'GitHub release downloads (juice-shop)',
+        vAxis: { title: 'Downloads' },
+        hAxis: { title: 'Date' },
         seriesType: 'bars',
         isStacked: true
-      }
-
-    chart = new google.visualization.ComboChart(document.getElementById('gh'))
-    chart.draw(data, op)
+    })
     // Github Juice-shop ----
     
 };
