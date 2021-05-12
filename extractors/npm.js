@@ -7,6 +7,7 @@ const collectData = async () => {
     let downloads = fs.readFileSync('statsData/npm.json')
     downloads = JSON.parse(downloads)
     let date = new Date(Date.now())
+    date.setDate(date.getDate() -1)
     date = date.toISOString().split('T')[0]
     let dates = [date]
     for(const date of dates){
