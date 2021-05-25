@@ -148,7 +148,37 @@ function drawStuff() {
         isStacked: true
     })
     // Github Juice-shop ----
-    
+
+    // Challenge Category Distribution ----
+    categories = categories.split(",")
+    categoriesData = []
+    categoriesData.push(['Challenges','Categories Distribution'])
+    for (let i = 0; i < categories.length; i += 2) {
+        categoriesData.push([categories[i], parseInt(categories[i + 1], 10)])
+    }
+    data = google.visualization.arrayToDataTable(categoriesData)
+
+    chart = new google.visualization.PieChart(document.getElementById('categories'))
+    chart.draw(data, {
+        title: 'Challenges Category Distribution'
+    })
+    // Challenge Category Distribution ----
+
+    // Challenge Tags Distribution ----
+    tags = tags.split(",")
+    tagsData = []
+    tagsData.push(['Challenges','Categories Distribution'])
+    for (let i = 0; i < tags.length; i += 2) {
+        tagsData.push([tags[i], parseInt(tags[i + 1], 10)])
+    }
+    data = google.visualization.arrayToDataTable(tagsData)
+
+    chart = new google.visualization.PieChart(document.getElementById('tags'))
+    chart.draw(data, {
+        title: 'Challenge Tags Distribution'
+    })
+    // Challenge Tags Distributiob ----
+
 };
 
 

@@ -53,6 +53,8 @@
       let github = "<%= github %>"
       let githubReleases = "<%= githubReleases %>"
       githubReleases = parseInt(githubReleases, 10)
+      let categories = "<%=categories%>"
+      let tags = "<%=tags%>"
     </script>
     <script type="text/javascript" src="script.js"></script>
 </head>
@@ -124,6 +126,28 @@
         <div class="card-body">
             <br/><br/>
             <div id="docJsCtf" class="box"></div>
+        </div>
+    </div>
+</div>
+<div class="container graph">
+    <div class="card">
+        <!-- <div class="card-header">
+            This Graph shows the Docker pulls for the juice-shop Ctf Extension.
+        </div> -->
+        <div class="card-body">
+            <br/><br/>
+            <div id="tags" class="box"></div>
+        </div>
+    </div>
+</div>
+<div class="container graph">
+    <div class="card">
+        <!-- <div class="card-header">
+            This Graph shows the Docker pulls for the juice-shop Ctf Extension.
+        </div> -->
+        <div class="card-body">
+            <br/><br/>
+            <div id="categories" class="box"></div>
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ const statsSf = require('./extractors/sourceForge')
 const statsNpm = require('./extractors/npm')
 const docker = require('./extractors/docker')
 const github = require('./extractors/github')
+const categories = require('./extractors/categories')
 const { env } = require('process')
 
 const app = express()
@@ -26,6 +27,14 @@ app.get('/',async (req,res) => {
             sourceForge = data
         }
     )
+    let categoriesData
+    let tags
+    await categories.getData().then(
+        (data) => {
+            categoriesData = data.categories
+            tags = data.tags
+        }
+    )
     let npm = statsNpm.getStats()
     let dockerData = docker.fetchData()
     let githubData = github.fetchData()
@@ -37,7 +46,9 @@ app.get('/',async (req,res) => {
         dockerJs: dockerData.jsData,
         dockerJsCtf: dockerData.jsCtfData,
         github: githubData.data,
-        githubReleases: githubData.releases
+        githubReleases: githubData.releases,
+        tags: tags,
+        categories: categoriesData
     })
 
     
