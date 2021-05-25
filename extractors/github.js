@@ -35,8 +35,9 @@ const collectData = async () => {
         }
         let prev_downloads = 0
         for(let j=0;j<prevJsData.length;j++){
-            if(prevJsData[i][0] === tag){
-                prev_downloads = prevJsData[i][2]
+            if(prevJsData[j][0] === tag){
+                prev_downloads = prevJsData[j][2]
+                break
             }
         }
 
