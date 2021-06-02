@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Statistics Extractor for juice-shop",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha tests/*.js",
     "start": "node index.js",
     "lint": "eslint extractors/*.js public/*.js ./*.js",
     "collect": "node extractors/collect.js",
@@ -11,11 +11,14 @@
   },
   "license": "MIT",
   "dependencies": {
+    "chai": "^4.3.4",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "js-yaml": "^4.1.0",
     "lint": "^0.7.0",
-    "node-fetch": "^2.6.1"
+    "mocha": "^8.4.0",
+    "node-fetch": "^2.6.1",
+    "sinon-chai": "^3.7.0"
   },
   "engines": {
     "node": "15.x"
