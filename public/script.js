@@ -145,7 +145,8 @@ function drawStuff() {
         vAxis: { title: 'Downloads' },
         hAxis: { title: 'Date' },
         seriesType: 'bars',
-        isStacked: true
+        isStacked: true,
+        legend: { maxLines: 3, pageIndex: 99 }
     })
     // Github Juice-shop ----
 
