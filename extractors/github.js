@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 const fs = require('fs')
 
-const urlJs = 'https://api.github.com/repos/bkimminich/juice-shop/releases'
+const urlJs = 'https://api.github.com/repos/juice-shop/juice-shop/releases'
 const urlJsCtf = 'https://api.github.com/repos/juice-shop/juice-shop-ctf/releases'
 
 const collectData = async () => {
