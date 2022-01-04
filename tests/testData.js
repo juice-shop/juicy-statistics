@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2021-2022 Bjoern Kimminich & the OWASP Juice Shop contributors.
+ * SPDX-License-Identifier: MIT
+ */
+
 const chai = require('chai')
 const sinonChai = require('sinon-chai')
 const expect = chai.expect

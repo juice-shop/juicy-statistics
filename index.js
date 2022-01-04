@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2021-2022 Bjoern Kimminich & the OWASP Juice Shop contributors.
+ * SPDX-License-Identifier: MIT
+ */
+
 const express = require('express')
 var path = require('path')
 const statsSf = require('./extractors/sourceForge')

@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2021-2022 Bjoern Kimminich & the OWASP Juice Shop contributors.
+ * SPDX-License-Identifier: MIT
+ */
+
 const fetch = require('node-fetch')
 const url = 'https://sourceforge.net/projects/juice-shop/files/stats/json?'
 
