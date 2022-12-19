@@ -45,7 +45,10 @@ function options(label){
                 0: { side: 'left', label: 'Downloads' }
             }
         },
-        bar: { groupWidth: "90%" }
+        bar: { groupWidth: "90%" },
+        vAxis: {
+            scaleType: 'log'
+        }
     }
 
     return op
@@ -147,7 +150,7 @@ function drawStuff() {
     chart = new google.visualization.ComboChart(document.getElementById('gh'))
     chart.draw(data, {
         title: 'GitHub release downloads (juice-shop)',
-        vAxis: { title: 'Downloads' },
+        vAxis: { title: 'Downloads', scaleType: 'log' },
         hAxis: { title: 'Date' },
         seriesType: 'bars',
         isStacked: true,
