@@ -47,7 +47,7 @@ function options(label){
         },
         bar: { groupWidth: "90%" },
         vAxis: {
-            scaleType: 'log'
+            scaleType: 'mirrorLog'
         }
     }
 
@@ -150,7 +150,7 @@ function drawStuff() {
     chart = new google.visualization.ComboChart(document.getElementById('gh'))
     chart.draw(data, {
         title: 'GitHub release downloads (juice-shop)',
-        vAxis: { title: 'Downloads', scaleType: 'log' },
+        vAxis: { title: 'Downloads', scaleType: 'mirrorLog' },
         hAxis: { title: 'Date' },
         seriesType: 'bars',
         isStacked: true,
