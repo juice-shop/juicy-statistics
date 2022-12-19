@@ -47,7 +47,7 @@ function options(label){
         },
         bar: { groupWidth: "90%" },
         vAxis: {
-            scaleType: 'mirrorLog'
+            scaleType: 'log' // FIXME Neither "log" nor "mirrorLog" scale have the intented effect in the BarCharts using this config. See https://github.com/juice-shop/juicy-statistics/issues/24
         }
     }
 
@@ -150,7 +150,7 @@ function drawStuff() {
     chart = new google.visualization.ComboChart(document.getElementById('gh'))
     chart.draw(data, {
         title: 'GitHub release downloads (juice-shop)',
-        vAxis: { title: 'Downloads', scaleType: 'mirrorLog' },
+        vAxis: { title: 'Downloads', scaleType: 'log' },
         hAxis: { title: 'Date' },
         seriesType: 'bars',
         isStacked: true,
