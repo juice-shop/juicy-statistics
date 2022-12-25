@@ -42,13 +42,10 @@ function options(label){
                 0: { side: 'bottom', label: 'Date' }
             },
             y: {
-                0: { side: 'left', label: 'Downloads' }
+                0: { side: 'left', label: 'Downloads' }            Re
             }
         },
-        bar: { groupWidth: "90%" },
-        vAxis: {
-            scaleType: 'log' // FIXME Neither "log" nor "mirrorLog" scale have the intented effect in the BarCharts using this config. See https://github.com/juice-shop/juicy-statistics/issues/24
-        }
+        bar: { groupWidth: "90%" }
     }
 
     return op
@@ -150,7 +147,7 @@ function drawStuff() {
     chart = new google.visualization.ComboChart(document.getElementById('gh'))
     chart.draw(data, {
         title: 'GitHub release downloads (juice-shop)',
-        vAxis: { title: 'Downloads', scaleType: 'log' },
+        vAxis: { title: 'Downloads' },
         hAxis: { title: 'Date' },
         seriesType: 'bars',
         isStacked: true,
