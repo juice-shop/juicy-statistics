@@ -42,7 +42,7 @@ function options(label){
                 0: { side: 'bottom', label: 'Date' }
             },
             y: {
-                0: { side: 'left', label: 'Downloads' }            Re
+                0: { side: 'left', label: 'Downloads' }
             }
         },
         bar: { groupWidth: "90%" }
