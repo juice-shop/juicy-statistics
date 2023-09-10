@@ -61,10 +61,7 @@ const fetchData = () => {
 
     let data = []
     let dates = Object.getOwnPropertyNames(githubDataJs)
-    let releases = []
-    for(let i=0;i<githubDataJs[dates[dates.length -1]].length;i++){
-        releases.push(githubDataJs[dates[dates.length - 1]][i][0])
-    }
+    let releases = githubDataJs[dates[dates.length -1]].map(o => o[0])
     data.push(releases)
 
     for(const date of dates){
