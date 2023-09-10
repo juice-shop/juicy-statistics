@@ -19,7 +19,7 @@ const collectData = async () => {
     prevDate = prevDate.toISOString().split('T')[0]
 
     let prevJsData = githubDataJs[prevDate] || {}
-    
+
 
     let dataJs
     await fetch(urlJs).then(
@@ -68,27 +68,29 @@ const fetchData = () => {
     data.push(releases)
 
     for(const date of dates){
-        let currData = [date]
+        let downloadsPerReleaseByDay = [date]
         for(const release of releases){
             let done = false
             for(const data of githubDataJs[date]){
                 if(data[0] === release){
-                    currData.push(data[1])
+                    downloadsPerReleaseByDay.push(data[1])
                     done=true
                     break
                 }
             }
-            if(!done) currData.push(0)
+            if(!done) downloadsPerReleaseByDay.push(0)
         }
-
-        data.push(currData)
+        // remove days with zero downloads for any releases in scope
+        if (downloadsPerReleaseByDay.slice(1).reduce((accumulator, currentValue) => accumulator + currentValue, 0) > 0) {
+            data.push(downloadsPerReleaseByDay)
+        }
 
     }
     return {
         data: data,
         releases: releases.length
     }
-    
+
 }
 module.exports.collect = collectData
 module.exports.fetchData = fetchData
