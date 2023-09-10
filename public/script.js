@@ -5,8 +5,7 @@
 
 google.charts.load('current', { 'packages': ['bar'] })
 google.charts.load('current', {'packages':['corechart']})
-
-google.charts.setOnLoadCallback(drawStuff)
+google.charts.setOnLoadCallback(drawCharts)
 
 const adjust = () => {
     let width
@@ -51,7 +50,7 @@ function options(label){
     return op
 }
 
-function drawStuff() {
+function drawCharts() {
 
     //  Npm ----
     adjust()
@@ -61,12 +60,10 @@ function drawStuff() {
     for (let i = 0; i < npm.length; i += 2) {
         npmData.push([npm[i], parseInt(npm[i + 1], 10)])
     }
-    // console.log(npmData)
     let data = new google.visualization.arrayToDataTable(npmData)
 
     let chart = new google.charts.Bar(document.getElementById('npm'))
     chart.draw(data, options('npm downloads (juice-shop-ctf-cli)'))
-    // Npm ----
 
     // SourceForge ----
     sf = sf.split(',')
@@ -75,7 +72,6 @@ function drawStuff() {
     for (let i = 0; i < sf.length; i += 2) {
         sfData.push([sf[i].split(' ')[0], parseInt(sf[i + 1], 10)])
     }
-    // console.log(sfData)
     data = new google.visualization.arrayToDataTable(sfData)
     chart = new google.visualization.LineChart(document.getElementById('sf'));
     chart.draw(data, {
@@ -83,7 +79,6 @@ function drawStuff() {
         curveType: 'function',
         legend: { position: 'bottom' }
     })
-    // SourceForge ----
 
     // Docker Juice-shop ----
     docJs = docJs.split(',')
@@ -92,13 +87,10 @@ function drawStuff() {
     for (let i = 0; i < docJs.length; i += 2) {
         docJsData.push([docJs[i], parseInt(docJs[i + 1], 10)])
     }
-    // console.log(docJsData)
     data = new google.visualization.arrayToDataTable(docJsData)
 
     chart = new google.charts.Bar(document.getElementById('docJs'))
     chart.draw(data, options('Docker pulls (bkimminich/juice-shop)'))
-
-    // Docker Juice-shop ----
 
     // Docker Juice-shop Ctf ----
     docJsCtf = docJsCtf.split(',')
@@ -107,17 +99,12 @@ function drawStuff() {
     for (let i = 0; i < docJsCtf.length; i += 2) {
         docJsCtfData.push([docJsCtf[i], parseInt(docJsCtf[i + 1], 10)])
     }
-    // console.log(docJsCtfData)
     data = new google.visualization.arrayToDataTable(docJsCtfData)
 
     chart = new google.charts.Bar(document.getElementById('docJsCtf'))
     chart.draw(data, options('Docker pulls (bkimminich/juice-shop-ctf)'))
-    // Docker Juice-shop Ctf ----
 
     // Github Juice-shop ----
-
-    // console.log(github)
-
     github = github.split(',')
     let githubData = []
     let releases = ["Date"]
@@ -141,8 +128,6 @@ function drawStuff() {
         }
         githubData.push(currData)
     }
-    // console.log(github)
-    // console.log(githubData)
     data = new google.visualization.arrayToDataTable(githubData)
     chart = new google.visualization.ComboChart(document.getElementById('gh'))
     chart.draw(data, {
@@ -153,7 +138,6 @@ function drawStuff() {
         isStacked: true,
         legend: { maxLines: 3, pageIndex: 99 }
     })
-    // Github Juice-shop ----
 
     // Challenge Category Distribution ----
     categories = categories.split(",")
@@ -168,7 +152,6 @@ function drawStuff() {
     chart.draw(data, {
         title: 'Challenges Category Distribution'
     })
-    // Challenge Category Distribution ----
 
     // Challenge Tags Distribution ----
     tags = tags.split(",")
@@ -183,8 +166,6 @@ function drawStuff() {
     chart.draw(data, {
         title: 'Challenge Tags Distribution'
     })
-    // Challenge Tags Distributiob ----
-
 };
 
 
