@@ -2,8 +2,6 @@
  * Copyright (c) 2021-2023 Bjoern Kimminich & the OWASP Juice Shop contributors.
  * SPDX-License-Identifier: MIT
  */
-
-google.charts.load('current', { 'packages': ['bar'] })
 google.charts.load('current', {'packages':['corechart']})
 google.charts.setOnLoadCallback(drawCharts)
 
@@ -23,33 +21,6 @@ const adjust = () => {
 
 }
 
-function options(label){
-    let op = {
-        is3d: true,
-        title: label,
-        // colors: ['rgb(255, 81, 0)'],
-        width: 400,
-        length: 300,
-        legend: { position: 'none' },
-        chart: {
-            title: label,
-            // subtitle: 'Npm'
-        },
-        bars: 'vertical',
-        axes: {
-            x: {
-                0: { side: 'bottom', label: 'Date' }
-            },
-            y: {
-                0: { side: 'left', label: 'Downloads' }
-            }
-        },
-        bar: { groupWidth: "90%" }
-    }
-
-    return op
-}
-
 function drawCharts() {
 
     //  Npm ----
@@ -62,8 +33,12 @@ function drawCharts() {
     }
     let data = new google.visualization.arrayToDataTable(npmData)
 
-    let chart = new google.charts.Bar(document.getElementById('npm'))
-    chart.draw(data, options('npm downloads (juice-shop-ctf-cli)'))
+    let chart = new google.visualization.LineChart(document.getElementById('npm'))
+    chart.draw(data, {
+        title: 'npm downloads (juice-shop-ctf-cli)',
+        lineWidth: 0.5,
+        legend: { position: 'bottom' }
+    })
 
     // SourceForge ----
     sf = sf.split(',')
@@ -89,8 +64,15 @@ function drawCharts() {
     }
     data = new google.visualization.arrayToDataTable(docJsData)
 
-    chart = new google.charts.Bar(document.getElementById('docJs'))
-    chart.draw(data, options('Docker pulls (bkimminich/juice-shop)'))
+    chart = new google.visualization.LineChart(document.getElementById('docJs'))
+    chart.draw(data, {
+        title: 'Docker pulls (bkimminich/juice-shop)',
+        lineWidth: 0.5,
+        legend: { position: 'bottom' },
+        vAxis: {
+            scaleType: 'log'
+        }
+    })
 
     // Docker Juice-shop Ctf ----
     docJsCtf = docJsCtf.split(',')
@@ -101,8 +83,15 @@ function drawCharts() {
     }
     data = new google.visualization.arrayToDataTable(docJsCtfData)
 
-    chart = new google.charts.Bar(document.getElementById('docJsCtf'))
-    chart.draw(data, options('Docker pulls (bkimminich/juice-shop-ctf)'))
+    chart = new google.visualization.LineChart(document.getElementById('docJsCtf'))
+    chart.draw(data, {
+        title: 'Docker pulls (bkimminich/juice-shop-ctf)',
+        lineWidth: 0.5,
+        legend: { position: 'bottom' },
+        vAxis: {
+            scaleType: 'log'
+        }
+    })
 
     // Github Juice-shop ----
     github = github.split(',')
@@ -132,11 +121,11 @@ function drawCharts() {
     chart = new google.visualization.ComboChart(document.getElementById('gh'))
     chart.draw(data, {
         title: 'GitHub release downloads (juice-shop)',
-        vAxis: { title: 'Downloads' },
+        curveType: 'function',
+        vAxis: { title: 'Downloads', scaleType: 'log' },
         hAxis: { title: 'Date' },
-        seriesType: 'bars',
-        isStacked: true,
-        legend: { maxLines: 3, pageIndex: 99 }
+        seriesType: 'line',
+        lineWidth: 1
     })
 
     // Challenge Category Distribution ----
