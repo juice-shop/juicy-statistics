@@ -61,27 +61,21 @@ const fetchData = () => {
 
     let data = []
     let dates = Object.getOwnPropertyNames(githubDataJs)
-    let releases = githubDataJs[dates[dates.length -1]].map(o => o[0])
+    let releases = ['v9', 'v10', 'v11', 'v12', 'v13', 'v14', 'v15']
     data.push(releases)
 
     for(const date of dates){
         let downloadsPerReleaseByDay = [date]
+        const downloadsPerRelease = { v9: 0, v10: 0, v11: 0, v12: 0, v13: 0, v14: 0, v15: 0}
         for(const release of releases){
-            let done = false
             for(const data of githubDataJs[date]){
-                if(data[0] === release){
-                    downloadsPerReleaseByDay.push(data[1])
-                    done=true
-                    break
+                if(data[0].startsWith(release)){
+                    downloadsPerRelease[release] += data[1]
                 }
             }
-            if(!done) downloadsPerReleaseByDay.push(0)
         }
-        // remove days with zero downloads for any releases in scope
-        if (downloadsPerReleaseByDay.slice(1).reduce((accumulator, currentValue) => accumulator + currentValue, 0) > 0) {
-            data.push(downloadsPerReleaseByDay)
-        }
-
+        downloadsPerReleaseByDay.push(Object.values(downloadsPerRelease))
+        data.push(downloadsPerReleaseByDay)
     }
     return {
         data: data,

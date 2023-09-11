@@ -124,7 +124,7 @@ function drawCharts() {
         curveType: 'function',
         vAxis: { title: 'Downloads', scaleType: 'log' },
         hAxis: { title: 'Date' },
-        seriesType: 'line',
+        seriesType: 'area',
         lineWidth: 1
     })
 
