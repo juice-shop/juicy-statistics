@@ -33,10 +33,10 @@ function drawCharts() {
     }
     let data = new google.visualization.arrayToDataTable(npmData)
 
-    let chart = new google.visualization.LineChart(document.getElementById('npm'))
+    let chart = new google.visualization.AreaChart(document.getElementById('npm'))
     chart.draw(data, {
         title: 'npm downloads (juice-shop-ctf-cli)',
-        lineWidth: 0.5,
+        lineWidth: 0,
         legend: { position: 'bottom' }
     })
 
@@ -64,10 +64,10 @@ function drawCharts() {
     }
     data = new google.visualization.arrayToDataTable(docJsData)
 
-    chart = new google.visualization.LineChart(document.getElementById('docJs'))
+    chart = new google.visualization.AreaChart(document.getElementById('docJs'))
     chart.draw(data, {
         title: 'Docker pulls (bkimminich/juice-shop)',
-        lineWidth: 0.5,
+        lineWidth: 0,
         legend: { position: 'bottom' },
         vAxis: {
             scaleType: 'log'
@@ -83,10 +83,10 @@ function drawCharts() {
     }
     data = new google.visualization.arrayToDataTable(docJsCtfData)
 
-    chart = new google.visualization.LineChart(document.getElementById('docJsCtf'))
+    chart = new google.visualization.AreaChart(document.getElementById('docJsCtf'))
     chart.draw(data, {
         title: 'Docker pulls (bkimminich/juice-shop-ctf)',
-        lineWidth: 0.5,
+        lineWidth: 0,
         legend: { position: 'bottom' },
         vAxis: {
             scaleType: 'log'
@@ -125,7 +125,7 @@ function drawCharts() {
         vAxis: { title: 'Downloads', scaleType: 'log' },
         hAxis: { title: 'Date' },
         seriesType: 'area',
-        lineWidth: 1
+        lineWidth: 0
     })
 
     // Challenge Category Distribution ----
