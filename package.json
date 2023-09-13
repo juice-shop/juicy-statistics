@@ -5,9 +5,9 @@
   "scripts": {
     "test": "mocha tests/*.js",
     "start": "node index.js",
-    "lint": "eslint extractors/*.js public/*.js ./*.js",
     "collect": "node extractors/collect.js",
-    "lint:fix": "eslint --fix extractors/*.js public/*.js ./*.js"
+    "lint": "standard",
+    "lint:fix": "standard --fix"
   },
   "license": "MIT",
   "dependencies": {
@@ -20,8 +20,27 @@
   "devDependencies": {
     "mocha": "^9.1.1",
     "chai": "^4.3.4",
-    "eslint": "^7.32.0",
+    "standard": "^17.1.0",
     "sinon-chai": "^3.7.0"
+  },
+  "standard": {
+    "env": [
+      "node",
+      "mocha"
+    ],
+    "globals": [
+      "it",
+      "describe",
+      "google",
+      "npm",
+      "sf",
+      "docJs",
+      "docJsCtf",
+      "github",
+      "githubReleases",
+      "categories",
+      "tags"
+    ]
   },
   "engines": {
     "node": "16 - 20"
