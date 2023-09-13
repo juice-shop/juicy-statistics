@@ -36,7 +36,7 @@ function drawCharts() {
     let chart = new google.visualization.AreaChart(document.getElementById('npm'))
     chart.draw(data, {
         title: 'npm downloads (juice-shop-ctf-cli)',
-        lineWidth: 0,
+        lineWidth: 0.1,
         legend: { position: 'bottom' }
     })
 
@@ -67,7 +67,7 @@ function drawCharts() {
     chart = new google.visualization.AreaChart(document.getElementById('docJs'))
     chart.draw(data, {
         title: 'Docker pulls (bkimminich/juice-shop)',
-        lineWidth: 0,
+        lineWidth: 0.1,
         legend: { position: 'bottom' },
         vAxis: {
             scaleType: 'log'
@@ -86,7 +86,7 @@ function drawCharts() {
     chart = new google.visualization.AreaChart(document.getElementById('docJsCtf'))
     chart.draw(data, {
         title: 'Docker pulls (bkimminich/juice-shop-ctf)',
-        lineWidth: 0,
+        lineWidth: 0.1,
         legend: { position: 'bottom' },
         vAxis: {
             scaleType: 'log'
@@ -125,7 +125,7 @@ function drawCharts() {
         vAxis: { title: 'Downloads', scaleType: 'log' },
         hAxis: { title: 'Date' },
         seriesType: 'area',
-        lineWidth: 0
+        lineWidth: 0.1
     })
 
     // Challenge Category Distribution ----
