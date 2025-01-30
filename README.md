@@ -5,7 +5,7 @@
 ## GitHub Contributors
 
 As reported by [`git-stats -a -s '2021'`](https://www.npmjs.com/package/git-stats) analysis
-of `master` as of Wed, 13 Oct 2021 after deduplication with `.mailmap`.
+of `master` as of Thu, 30 Jan 2025 after deduplication with `.mailmap`.
 
 ![Top git contributors](images/git-stats.png)
 
