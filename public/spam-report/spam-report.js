@@ -3,10 +3,7 @@ const fetch = require("node-fetch");
 
 require('dotenv').config();
 
-// Use this one
-const GITHUB_TOKEN = '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';
-
-// Or create your own token
+// If you want to create your own token
 // Set up a fine-grained personal access token (PAT) with the Juice Shop repository and metadata permission set to read-only
 // const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
