@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="width: 60vw; height: 60vh; display: flex; align-items: center; justify-content: center; margin: auto;margin-top: 150px;">
+    <canvas id="spamChart" width="400" height="200"></canvas>
+    <script>
+        fetch('../statsData/spam-report.json')
+            .then(response => response.json())
+            .then(data => {
+                const labels = data.map(entry => entry.date);
+                const spamIssues = data.map(entry => entry.totalSpamIssues);
+                const spamPRs = data.map(entry => entry.totalSpamPRs);
+
+                const ctx = document.getElementById('spamChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'Spam Issues',
+                                data: spamIssues,
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Spam PRs',
+                                data: spamPRs,
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+    </script>
+</body>
+</html> 
