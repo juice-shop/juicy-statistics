@@ -152,7 +152,50 @@ function drawCharts () {
   chart.draw(data, {
     title: 'Challenge Tags Distribution'
   })
-};
+
+  // Spam Statistics ----
+  data = new google.visualization.DataTable();
+  data.addColumn('string', 'Date');
+  data.addColumn('number', 'Spam Issues');
+  data.addColumn('number', 'Spam PRs');
+
+  spamStats.forEach(entry => {
+    data.addRow([entry.date, entry.totalSpamPRs, entry.totalSpamIssues]);
+  });
+
+  options = {
+    title: 'Spam Report',
+    curveType: 'function',
+    legend: { position: 'top', alignment: 'center', textStyle: { fontSize: 12 } }, 
+    chartArea: { width: '80%', height: '70%' }, 
+    hAxis: {
+        title: 'Date',
+        slantedText: true, 
+        slantedTextAngle: 30, 
+        textStyle: { color: '#333', fontSize: 12 }
+    },
+    vAxis: {
+        title: 'Count',
+        minValue: 1,
+        gridlines: { color: '#ddd' }, 
+        textStyle: { color: '#333', fontSize: 12 }
+    },
+    series: {
+        0: { color: '#FF5733', lineWidth: 1.2, areaOpacity: 0.2 }, 
+        1: { color: '#3366CC', lineWidth: 1.2, areaOpacity: 0.2 }  
+    },
+    animation: {
+        startup: true,
+        duration: 1000,
+        easing: 'out' // Smooth transition
+    }
+  }
+
+   chart = new google.visualization.LineChart(document.getElementById('spamChart'));
+   chart.draw(data, options);
+}
+
+
 
 document.onload = adjust
 window.onresize = adjust
