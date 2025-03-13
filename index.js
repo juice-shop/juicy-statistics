@@ -10,6 +10,7 @@ const statsNpm = require('./extractors/npm')
 const docker = require('./extractors/docker')
 const github = require('./extractors/github')
 const categories = require('./extractors/categories')
+const spamReport = require('./extractors/spam-report')
 const { env } = require('process')
 
 const app = express()
@@ -42,6 +43,7 @@ app.get('/', async (req, res) => {
   const npm = statsNpm.getStats()
   const dockerData = docker.fetchData()
   const githubData = github.fetchData()
+  let spamData = spamReport.fetchData()
 
   res.render('index.ejs', {
     sourceForge,
@@ -51,7 +53,8 @@ app.get('/', async (req, res) => {
     github: githubData.data,
     githubReleases: githubData.releases,
     tags,
-    categories: categoriesData
+    categories: categoriesData,
+    spamStats: spamData
   })
 })
 
