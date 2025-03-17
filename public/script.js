@@ -153,46 +153,57 @@ function drawCharts () {
     title: 'Challenge Tags Distribution'
   })
 
-  // Spam Statistics ----
-  data = new google.visualization.DataTable();
-  data.addColumn('string', 'Date');
-  data.addColumn('number', 'Spam Issues');
-  data.addColumn('number', 'Spam PRs');
+  // Spam issues and Pull Requests
+  const monthlyData = {};
 
-  spamStats.forEach(entry => {
-    data.addRow([entry.date, entry.totalSpamPRs, entry.totalSpamIssues]);
+  spamStats.forEach((entry) => {
+    const date = new Date(entry.date);
+    const monthKey = `${date.getFullYear()}-${(date.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}`; // Format: YYYY-MM
+
+    if (!monthlyData[monthKey]) {
+      monthlyData[monthKey] = { spamIssues: 0, spamPRs: 0 };
+    }
+
+    monthlyData[monthKey].spamIssues += entry.totalSpamIssues;
+    monthlyData[monthKey].spamPRs += entry.totalSpamPRs;
   });
 
-  options = {
-    title: 'Spam Report',
-    curveType: 'function',
-    legend: { position: 'top', alignment: 'center', textStyle: { fontSize: 12 } }, 
-    chartArea: { width: '80%', height: '70%' }, 
-    hAxis: {
-        title: 'Date',
-        slantedText: true, 
-        slantedTextAngle: 30, 
-        textStyle: { color: '#333', fontSize: 12 }
-    },
-    vAxis: {
-        title: 'Count',
-        minValue: 1,
-        gridlines: { color: '#ddd' }, 
-        textStyle: { color: '#333', fontSize: 12 }
-    },
-    series: {
-        0: { color: '#FF5733', lineWidth: 1.2, areaOpacity: 0.2 }, 
-        1: { color: '#3366CC', lineWidth: 1.2, areaOpacity: 0.2 }  
-    },
-    animation: {
-        startup: true,
-        duration: 1000,
-        easing: 'out' // Smooth transition
-    }
-  }
+  const labels = Object.keys(monthlyData);
+  const spamIssues = labels.map((month) => monthlyData[month].spamIssues);
+  const spamPRs = labels.map((month) => monthlyData[month].spamPRs);
 
-   chart = new google.visualization.LineChart(document.getElementById('spamChart'));
-   chart.draw(data, options);
+  const ctx = document.getElementById("spamChart").getContext("2d");
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Spam Issues",
+          data: spamIssues,
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 1,
+        },
+        {
+          label: "Spam PRs",
+          data: spamPRs,
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });  
+ 
+  
 }
 
 

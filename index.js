@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+const fs = require("fs");
 const express = require('express')
 const path = require('path')
 const statsSf = require('./extractors/sourceForge')
@@ -43,7 +44,7 @@ app.get('/', async (req, res) => {
   const npm = statsNpm.getStats()
   const dockerData = docker.fetchData()
   const githubData = github.fetchData()
-  let spamData = spamReport.fetchData()
+  const spamData = await spamReport.fetchData()
 
   res.render('index.ejs', {
     sourceForge,

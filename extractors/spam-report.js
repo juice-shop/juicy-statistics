@@ -16,9 +16,7 @@ const HISTORY_FILE = path.join(
   "spam-report.json"
 );
 
-const getDateString = (date) => {
-  return date.toISOString().split("T")[0];
-};
+const getDateString = (date) => date.toISOString().split("T")[0];
 
 const collectData = async (date) => {
   const startDate = new Date(date);
@@ -41,7 +39,7 @@ const collectData = async (date) => {
     );
 
     const data = await response.json();
-    if (data.length === 0) break;
+    if (!Array.isArray(data) || data.length === 0) break;
 
     data.forEach((item) => {
       const closedDate = new Date(item.closed_at);
@@ -65,17 +63,24 @@ const collectData = async (date) => {
 };
 
 const fetchData = async () => {
-  let history = {};
+  let history = [];
 
-  history = JSON.parse(fs.readFileSync(HISTORY_FILE, "utf-8"));
+  const fileContent = fs.readFileSync(HISTORY_FILE, "utf-8");
+  history = JSON.parse(fileContent);
 
   const today = new Date();
   const todayString = getDateString(today);
+
+  if (history.some((entry) => entry.date === todayString)) {
+    console.log(`Data for ${todayString} already exists. Skipping.`);
+    return history;
+  }
+
   const dailyData = await collectData(today);
   if (dailyData) {
-    history[todayString] = dailyData;
+    history.push(dailyData);
     fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2));
-    console.log(`Added data for ${todayString}`);
+    console.log(`✅ Added data for ${todayString}`);
   }
 
   return history;
@@ -83,5 +88,5 @@ const fetchData = async () => {
 
 module.exports = {
   collectData,
-  fetchData,
+  fetchData
 };

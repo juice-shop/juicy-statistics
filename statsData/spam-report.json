@@ -8793,5 +8793,40 @@
     "date": "2025-03-10",
     "totalSpamPRs": 0,
     "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-03-11",
+    "totalSpamPRs": 0,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-03-12",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-03-13",
+    "totalSpamPRs": 3,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-03-14",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 1
+  },
+  {
+    "date": "2025-03-15",
+    "totalSpamPRs": 0,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-03-16",
+    "totalSpamPRs": 0,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-03-17",
+    "totalSpamPRs": 0,
+    "totalSpamIssues": 0
   }
 ]

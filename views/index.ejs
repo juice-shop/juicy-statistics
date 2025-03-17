@@ -8,6 +8,8 @@
             crossorigin="anonymous"></script>
     <title>OWASP Juice Shop - Open Source Statistics</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
         .box {
             position: relative;
@@ -15,8 +17,7 @@
             height: 500px;
             display: flex;
             justify-content: center;
-            overflow-x: hidden;
-            overflow-y: hidden;
+            overflow: hidden;
         }
 
         .graph {
@@ -42,6 +43,15 @@
 
         .card {
 
+        }
+
+        .spam-container {
+            width: 60vw;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
         }
     </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -159,7 +169,7 @@
             This Graph shows the number of spam issues and PRs for the juice-shop app.
         </div> -->
         <div class="card-body">
-            <div id="spamChart" class="box"></div>
+            <canvas id="spamChart" class="box"></canvas>
         </div>
     </div>
 </div>
