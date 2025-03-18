@@ -153,9 +153,8 @@ function drawCharts () {
     title: 'Challenge Tags Distribution'
   })
 
-  // Spam issues and Pull Requests
+  // Spam issues and Pull Requests ----
   const monthlyData = {};
-
   spamStats.forEach((entry) => {
     const date = new Date(entry.date);
     const monthKey = `${date.getFullYear()}-${(date.getMonth() + 1)
@@ -169,44 +168,39 @@ function drawCharts () {
     monthlyData[monthKey].spamIssues += entry.totalSpamIssues;
     monthlyData[monthKey].spamPRs += entry.totalSpamPRs;
   });
-
-  const labels = Object.keys(monthlyData);
-  const spamIssues = labels.map((month) => monthlyData[month].spamIssues);
-  const spamPRs = labels.map((month) => monthlyData[month].spamPRs);
-
-  const ctx = document.getElementById("spamChart").getContext("2d");
-  new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "Spam Issues",
-          data: spamIssues,
-          borderColor: "rgba(255, 99, 132, 1)",
-          borderWidth: 1,
-        },
-        {
-          label: "Spam PRs",
-          data: spamPRs,
-          borderColor: "rgba(54, 162, 235, 1)",
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
+  const spamDataArray = [];
+  spamDataArray.push(["Month", "Spam Issues", "Spam PRs"]);
+  Object.keys(monthlyData).forEach((month) => {
+    spamDataArray.push([
+      month,
+      monthlyData[month].spamIssues,
+      monthlyData[month].spamPRs,
+    ]);
+  });
+  data = google.visualization.arrayToDataTable(spamDataArray);
+  chart = new google.visualization.LineChart(
+    document.getElementById("spamChart")
+  );
+  chart.draw(data, {
+    title: "Spam Issues and Pull Requests",
+    curveType: "none",
+    legend: { position: "top" },
+    vAxis: {
+      title: "Count",
+      viewWindow: {
+        min: 0,
       },
     },
-  });  
- 
+    series: {
+      0: { color: "#E07A5F" },
+      1: { color: "#81B29A" },
+    },
+    lineWidth: 1,
+    pointSize: 4,
+    tooltip: { trigger: "focus" },
+  });
   
 }
-
-
 
 document.onload = adjust
 window.onresize = adjust
