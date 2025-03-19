@@ -152,7 +152,55 @@ function drawCharts () {
   chart.draw(data, {
     title: 'Challenge Tags Distribution'
   })
-};
+
+  // Spam issues and Pull Requests ----
+  const monthlyData = {};
+  spamStats.forEach((entry) => {
+    const date = new Date(entry.date);
+    const monthKey = `${date.getFullYear()}-${(date.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}`; // Format: YYYY-MM
+
+    if (!monthlyData[monthKey]) {
+      monthlyData[monthKey] = { spamIssues: 0, spamPRs: 0 };
+    }
+
+    monthlyData[monthKey].spamIssues += entry.totalSpamIssues;
+    monthlyData[monthKey].spamPRs += entry.totalSpamPRs;
+  });
+  const spamDataArray = [];
+  spamDataArray.push(["Month", "Spam Issues", "Spam PRs"]);
+  Object.keys(monthlyData).forEach((month) => {
+    spamDataArray.push([
+      month,
+      monthlyData[month].spamIssues,
+      monthlyData[month].spamPRs,
+    ]);
+  });
+  data = google.visualization.arrayToDataTable(spamDataArray);
+  chart = new google.visualization.LineChart(
+    document.getElementById("spamChart")
+  );
+  chart.draw(data, {
+    title: "Spam Issues and Pull Requests",
+    curveType: "none",
+    legend: { position: "top" },
+    vAxis: {
+      title: "Count",
+      viewWindow: {
+        min: 0,
+      },
+    },
+    series: {
+      0: { color: "#E07A5F" },
+      1: { color: "#81B29A" },
+    },
+    lineWidth: 1,
+    pointSize: 4,
+    tooltip: { trigger: "focus" },
+  });
+  
+}
 
 document.onload = adjust
 window.onresize = adjust

@@ -15,8 +15,7 @@
             height: 500px;
             display: flex;
             justify-content: center;
-            overflow-x: hidden;
-            overflow-y: hidden;
+            overflow: hidden;
         }
 
         .graph {
@@ -43,6 +42,15 @@
         .card {
 
         }
+
+        .spam-container {
+            width: 60vw;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
     </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -55,6 +63,7 @@
       githubReleases = parseInt(githubReleases, 10)
       let categories = "<%=categories%>"
       let tags = "<%=tags%>"
+      let spamStats = <%- JSON.stringify(spamStats) %>;
     </script>
     <script type="text/javascript" src="script.js"></script>
 </head>
@@ -151,6 +160,18 @@
         </div>
     </div>
 </div>
+<!-- <br/><br/> -->
+<div class="wide">
+    <div class="card">
+        <!-- <div class="card-header">
+            This Graph shows the number of spam issues and PRs for the juice-shop app.
+        </div> -->
+        <div class="card-body">
+            <div id="spamChart" class="box"></div>
+        </div>
+    </div>
+</div>
+
 <br/><br/>
 <br/><br/>
 </body>
