@@ -1,58 +1,65 @@
 <html>
-
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-            crossorigin="anonymous"></script>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
     <title>OWASP Juice Shop - Open Source Statistics</title>
 
     <style>
-        .box {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-        }
+      .box {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+      }
 
-        .graph {
-            width: 50%;
-            float: left;
-            margin: 0 0 5px;
-        }
+      .graph {
+        width: 50%;
+        float: left;
+        margin: 0 0 5px;
+      }
 
-        .wide {
-            width: 100%;
-            float: left;
-            margin: 0;
-            /* margin-left:2%;
+      .wide {
+        width: 100%;
+        float: left;
+        margin: 0;
+        /* margin-left:2%;
             margin-right: 2%;
             margin-bottom: 5px; */
-            padding: 1rem 1rem;
-        }
+        padding: 1rem 1rem;
+      }
 
-        body {
-            text-align: center;
-            /* background-color: #212529; */
-        }
+      body {
+        text-align: center;
+        /* background-color: #212529; */
+      }
 
-        .card {
+      .card {
+      }
 
-        }
-
-        .spam-container {
-            width: 60vw;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
-        }
+      .spam-container {
+        width: 60vw;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+      }
     </style>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
     <script type="text/javascript">
       let npm = "<%= npm %>"
       let sf = "<%= sourceForge %>"
@@ -66,114 +73,121 @@
       let spamStats = <%- JSON.stringify(spamStats) %>;
     </script>
     <script type="text/javascript" src="script.js"></script>
-</head>
+  </head>
 
-<body>
-<nav class="navbar navbar-light bg-dark">
-    <div class="container-fluid">
+  <body>
+    <nav class="navbar navbar-light bg-dark">
+      <div class="container-fluid">
         <!-- <a class="navbar-brand" href="#"></a> -->
-        <a href="https://owasp-juice.shop"><img src="https://avatars.githubusercontent.com/u/83415759?s=200&v=4" alt="" width="60" height="60"
-             class="d-inline-block align-text-top"></a>
-        <span style="color:white;font-size: large;">OWASP Juice Shop - Open Source Statistics</span>
+        <a href="https://owasp-juice.shop"
+          ><img
+            src="https://avatars.githubusercontent.com/u/83415759?s=200&v=4"
+            alt=""
+            width="60"
+            height="60"
+            class="d-inline-block align-text-top"
+        /></a>
+        <span style="color: white; font-size: large"
+          >OWASP Juice Shop - Open Source Statistics</span
+        >
         <!-- </a> -->
-    </div>
-</nav>
-<br/><br/>
-<div class="wide">
-    <div class="card">
+      </div>
+    </nav>
+    <br /><br />
+    <div class="wide">
+      <div class="card">
         <!-- <div class="card-header">
             This Graph shows the Github downloads for the juice-shop app
         </div> -->
         <div class="card-body">
-            <br/><br/>
-            <div id="gh" class="box"></div>
+          <br /><br />
+          <div id="gh" class="box"></div>
         </div>
+      </div>
     </div>
-</div>
-<!-- <br/><br/> -->
-<div class="wide">
-    <div class="card">
+    <!-- <br/><br/> -->
+    <div class="wide">
+      <div class="card">
         <!-- <div class="card-header">
             This Graph shows the Docker pulls for the juice-shop app.
         </div> -->
         <div class="card-body">
-            <br/><br/>
-            <div id="docJs" class="box"></div>
+          <br /><br />
+          <div id="docJs" class="box"></div>
         </div>
+      </div>
     </div>
-</div>
-<!-- <br/><br/> -->
-<div class="wide">
-    <div class="card">
+    <!-- <br/><br/> -->
+    <div class="wide">
+      <div class="card">
         <!-- <div class="card-header">
             This Graph shows the Source Forge downloads for the juice-shop app.
         </div> -->
         <div class="card-body">
-            <br/><br/>
-            <div id="sf" class="box"></div>
+          <br /><br />
+          <div id="sf" class="box"></div>
         </div>
+      </div>
     </div>
-</div>
-<!-- <br/><br/> -->
-<div class="container graph">
-    <div class="card">
+    <!-- <br/><br/> -->
+    <div class="container graph">
+      <div class="card">
         <!-- <div class="card-header">
             This Graph shows the npm downloads for the juice-shop-ctf-cli package.
         </div> -->
         <div class="card-body">
-            <br/><br/>
-            <div id="npm" class="box"></div>
+          <br /><br />
+          <div id="npm" class="box"></div>
         </div>
+      </div>
     </div>
-</div>
-<!-- <br/><br/> -->
-<div class="container graph">
-    <div class="card">
+    <!-- <br/><br/> -->
+    <div class="container graph">
+      <div class="card">
         <!-- <div class="card-header">
             This Graph shows the Docker pulls for the juice-shop Ctf Extension.
         </div> -->
         <div class="card-body">
-            <br/><br/>
-            <div id="docJsCtf" class="box"></div>
+          <br /><br />
+          <div id="docJsCtf" class="box"></div>
         </div>
+      </div>
     </div>
-</div>
-<div class="container graph">
-    <div class="card">
+    <div class="container graph">
+      <div class="card">
         <!-- <div class="card-header">
             This Graph shows the number of challenges per tag
         </div> -->
         <div class="card-body">
-            <br/><br/>
-            <div id="tags" class="box"></div>
+          <br /><br />
+          <div id="tags" class="box"></div>
         </div>
+      </div>
     </div>
-</div>
-<div class="container graph">
-    <div class="card">
+    <div class="container graph">
+      <div class="card">
         <!-- <div class="card-header">
             This Graph shows the number of challenges per category
         </div> -->
         <div class="card-body">
-            <br/><br/>
-            <div id="categories" class="box"></div>
+          <br /><br />
+          <div id="categories" class="box"></div>
         </div>
+      </div>
     </div>
-</div>
-<!-- <br/><br/> -->
-<div class="wide">
-    <div class="card">
+    <!-- <br/><br/> -->
+    <div class="wide">
+      <div class="card">
         <!-- <div class="card-header">
             This Graph shows the number of spam issues and PRs for the juice-shop app.
         </div> -->
         <div class="card-body">
-            <div id="spamChart" class="box"></div>
+          <div id="spamChart" class="box"></div>
         </div>
+      </div>
     </div>
-</div>
 
-<br/><br/>
-<br/><br/>
-</body>
-
+    <br /><br />
+    <br /><br />
+  </body>
 </html>
