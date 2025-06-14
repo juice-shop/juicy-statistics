@@ -6,6 +6,7 @@
     "test": "mocha tests/*.js",
     "start": "node index.js",
     "collect": "node extractors/collect.js",
+    "format": "prettier --write \"views/**/*.ejs\"",
     "lint": "standard",
     "lint:fix": "standard --fix"
   },
@@ -18,10 +19,12 @@
     "node-fetch": "^2.6.4"
   },
   "devDependencies": {
-    "mocha": "^9.1.1",
     "chai": "^4.3.4",
-    "standard": "^17.1.0",
-    "sinon-chai": "^3.7.0"
+    "mocha": "^9.1.1",
+    "prettier": "^3.5.3",
+    "prettier-plugin-ejs": "^1.0.3",
+    "sinon-chai": "^3.7.0",
+    "standard": "^17.1.0"
   },
   "standard": {
     "env": [
