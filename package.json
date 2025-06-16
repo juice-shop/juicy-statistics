@@ -10,7 +10,7 @@
     "collect": "node extractors/collect.js",
     "lint": "eslint index.ts extractors public --ext .ts",
     "lint:fix": "eslint index.ts extractors public --ext .ts --fix",
-    "format": "prettier --write \"views/**/*.ejs\"",
+    "format": "prettier --write \"views/**/*.ejs\""
   },
   "license": "MIT",
   "dependencies": {
