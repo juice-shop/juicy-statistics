@@ -3,27 +3,20 @@
  * SPDX-License-Identifier: MIT
  */
 
-const yaml = require('js-yaml')
-const fetch = require('node-fetch')
+import yaml from 'js-yaml'
 
-const getData = async () => {
+const getData = async (): Promise<{ categories: Array<[string, number]>, tags: Array<[string, number]> }> => {
   const url = 'https://raw.githubusercontent.com/OWASP/www-project-juice-shop/master/_data/challenges.yml'
-  let data
-  await fetch(url, {
+  const response = await fetch(url, {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(
-    response => response.text()
-  ).then(
-    (buffer) => {
-      data = buffer
-    }
-  )
+  })
+  const data = await response.text()
+  const doc = yaml.load(data) as any[]
 
-  const doc = yaml.load(data, 'utf-8')
-  const chart = {}
-  const tags = {}
+  const chart: Record<string, number> = {}
+  const tags: Record<string, number> = {}
 
   for (const record of doc) {
     if (chart[record.category] === undefined) {
@@ -43,21 +36,13 @@ const getData = async () => {
     }
   }
 
-  const tagNames = Object.getOwnPropertyNames(tags)
-  const tagData = []
-  for (const tag of tagNames) {
-    tagData.push([tag, tags[tag]])
-  }
-  const categories = Object.getOwnPropertyNames(chart)
-  const format = []
-  for (const category of categories) {
-    format.push([category, chart[category]])
-  }
+const categories = Object.entries(chart)
+const tagData = Object.entries(tags)
 
   return {
-    categories: format,
+    categories,
     tags: tagData
   }
 }
 
-module.exports.getData = getData
+export { getData }
