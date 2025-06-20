@@ -59,33 +59,13 @@ const fetchData = (): { data: string[][], releases: number } => {
 
   const data = []
   const dates = Object.getOwnPropertyNames(githubDataJs)
-  const releases = [
-    'v9',
-    'v10',
-    'v11',
-    'v12',
-    'v13',
-    'v14',
-    'v15',
-    'v16',
-    'v17'
-  ] as const
+  const releases = ['v9', 'v10', 'v11', 'v12', 'v13', 'v14', 'v15', 'v16', 'v17', 'v18'] as const
   type Release = (typeof releases)[number]
   data.push([...releases])
 
   for (const date of dates) {
     const downloadsPerReleaseByDay = [date]
-    const downloadsPerRelease: Record<Release, number> = {
-      v9: 0,
-      v10: 0,
-      v11: 0,
-      v12: 0,
-      v13: 0,
-      v14: 0,
-      v15: 0,
-      v16: 0,
-      v17: 0
-    }
+    const downloadsPerRelease: Record<Release, number> = { v9: 0, v10: 0, v11: 0, v12: 0, v13: 0, v14: 0, v15: 0, v16: 0, v17: 0, v18: 0 }
     for (const release of releases) {
       for (const data of githubDataJs[date]) {
         if (typeof data[0] === 'string' && data[0].startsWith(release)) {
