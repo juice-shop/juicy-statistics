@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2021-2024 Bjoern Kimminich & the OWASP Juice Shop contributors.
+ * SPDX-License-Identifier: MIT
+ */
+
+/* eslint-disable @typescript-eslint/no-floating-promises */
+
 import { test, describe } from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
@@ -29,10 +36,9 @@ describe('test correctness of the data', () => {
       const expectedLastDate = endDate.toISOString().split('T')[0]
       const oneDayBefore = new Date(endDate.getTime() - 86400000).toISOString().split('T')[0]
 
-      assert.ok(data.length === expectedDays || data.length === expectedDays - 1) 
+      assert.ok(data.length === expectedDays || data.length === expectedDays - 1)
       assert.ok(data[0][0], '2021-04-05')
       assert.ok(actualLastDate === expectedLastDate || actualLastDate === oneDayBefore)
-
     })
   })
 })
