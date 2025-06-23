@@ -50,7 +50,6 @@ app.get('/', async (req, res) => {
   }
 
   const categoriesData: CategoriesData = { categories: [], tags: [] }
-  let tags: string[] = []
 
   await categories.getData().then((data: any) => {
     categoriesData.categories = data.categories.map(
