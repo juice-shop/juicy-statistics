@@ -12,6 +12,23 @@
     "lint:fix": "eslint index.ts extractors public tests --ext .ts --fix",
     "format": "prettier --write \"views/**/*.ejs\""
   },
+  "c8": {
+    "all": true,
+    "include": [
+      "extractors/*.ts"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "tests/**",
+      "dist",
+      "public"
+    ],
+    "report-dir": "./build/reports/coverage",
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  },
   "license": "MIT",
   "dependencies": {
     "ejs": "^3.1.6",
