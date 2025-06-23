@@ -8,8 +8,8 @@
     "start": "node dist/index.js",
     "test": "c8 npx tsx tests/*.spec.ts",
     "collect": "node extractors/collect.js",
-    "lint": "eslint index.ts extractors public --ext .ts",
-    "lint:fix": "eslint index.ts extractors public --ext .ts --fix",
+    "lint": "eslint index.ts extractors public tests --ext .ts",
+    "lint:fix": "eslint index.ts extractors public tests --ext .ts --fix",
     "format": "prettier --write \"views/**/*.ejs\""
   },
   "license": "MIT",

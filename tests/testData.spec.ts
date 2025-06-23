@@ -8,7 +8,7 @@ describe('test correctness of the data', () => {
   describe('for npm', () => {
     test('should match with the data on server', async (t) => {
       const recentData = data.slice(-30)
-       for (const [date, downloads] of recentData) {
+      for (const [date, downloads] of recentData) {
         const response = await fetch(`https://api.npmjs.org/downloads/point/${date}:${date}/juice-shop-ctf-cli`)
         const npmData = await response.json()
         console.log(`Date: ${date}, Expected: ${downloads}, Actual: ${npmData.downloads}`)

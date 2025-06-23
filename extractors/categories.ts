@@ -36,8 +36,8 @@ const getData = async (): Promise<{ categories: Array<[string, number]>, tags: A
     }
   }
 
-const categories = Object.entries(chart)
-const tagData = Object.entries(tags)
+  const categories = Object.entries(chart)
+  const tagData = Object.entries(tags)
 
   return {
     categories,
