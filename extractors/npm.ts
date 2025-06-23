@@ -3,24 +3,25 @@
  * SPDX-License-Identifier: MIT
  */
 
-const fetch = require('node-fetch')
-const fs = require('fs')
+import fs from 'fs'
 const url = 'https://api.npmjs.org/downloads/point/'
 const packageName = 'juice-shop-ctf-cli'
 
-const collectData = async () => {
-  let downloads = fs.readFileSync('statsData/npm.json')
-  downloads = JSON.parse(downloads)
-  let date = new Date(Date.now())
+type StatsData = Array<[string, number]>
+
+const collectData = async (): Promise<void> => {
+  const downloads: any[] = JSON.parse(
+    fs.readFileSync('statsData/npm.json', 'utf-8')
+  )
+  const date = new Date(Date.now())
   date.setDate(date.getDate() - 1)
-  date = date.toISOString().split('T')[0]
-  const dates = [date]
+  const dateString = date.toISOString().split('T')[0]
+  const dates = [dateString]
   for (const date of dates) {
     const ExtractUrl = `${url}${date}:${date}/${packageName}`
-    await fetch(ExtractUrl).then(
-      data => data.json()
-    ).then(
-      (data) => {
+    await fetch(ExtractUrl)
+      .then(async (data) => await data.json())
+      .then((data) => {
         let there = false
         for (let i = 0; i < downloads.length; i++) {
           if (downloads[i][0] === date) {
@@ -30,26 +31,23 @@ const collectData = async () => {
         if (!there) {
           downloads.push([date, data.downloads])
         }
-      }
-    )
+      })
   }
-  downloads = JSON.stringify(downloads)
-  fs.writeFileSync('statsData/npm.json', downloads)
+  const downloadsString = JSON.stringify(downloads)
+  fs.writeFileSync('statsData/npm.json', downloadsString)
 }
 
-const getStats = () => {
+const getStats = (): StatsData => {
   // const sd = new Date(startDate)
   // const ed = new Date(endDate)
   // const dates = []
   // for(let d = sd;d<= ed;d.setDate(d.getDate()+1)){
   //     dates.push(`${d.toISOString().split('T')[0]}`)
   // }
-
-  let data = fs.readFileSync('statsData/npm.json')
-  data = JSON.parse(data)
+  const fileContent = fs.readFileSync('statsData/npm.json', 'utf-8')
+  const data = JSON.parse(fileContent) as StatsData
 
   return data
 }
 
-module.exports.getStats = getStats
-module.exports.collectData = collectData
+export { collectData, getStats }

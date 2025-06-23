@@ -2,29 +2,37 @@
   "name": "juicy-statistics",
   "version": "1.0.2",
   "description": "Statistics extractor & visualizer for OWASP Juice Shop",
+  "type": "commonjs",
   "scripts": {
-    "test": "mocha tests/*.js",
-    "start": "node index.js",
+    "build": "tsc && mkdir -p dist/statsData dist/public dist/views && cp -r statsData/* dist/statsData/ && cp -r views/* dist/views/",
+    "start": "node dist/index.js",
+    "test": "c8 npx tsx tests/*.spec.ts",
     "collect": "node extractors/collect.js",
-    "format": "prettier --write \"views/**/*.ejs\"",
-    "lint": "standard",
-    "lint:fix": "standard --fix"
+    "lint": "eslint index.ts extractors public --ext .ts",
+    "lint:fix": "eslint index.ts extractors public --ext .ts --fix",
+    "format": "prettier --write \"views/**/*.ejs\""
   },
   "license": "MIT",
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "js-yaml": "^4.1.0",
-    "lint": "^1.1.2",
-    "node-fetch": "^2.6.4"
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^9.1.1",
+    "@types/express": "^5.0.2",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.15.29",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "c8": "^10.1.3",
+    "eslint": "^8.57.1",
+    "eslint-config-standard-with-typescript": "^43.0.1",
     "prettier": "^3.5.3",
     "prettier-plugin-ejs": "^1.0.3",
     "sinon-chai": "^3.7.0",
-    "standard": "^17.1.0"
+    "standard": "^17.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2"
   },
   "standard": {
     "env": [
