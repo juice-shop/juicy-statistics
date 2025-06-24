@@ -7,10 +7,27 @@
     "build": "tsc && mkdirp dist/statsData dist/views && copyfiles \"statsData/*.json\" dist && copyfiles \"views/*.ejs\" dist",
     "start": "node dist/index.js",
     "test": "c8 npx tsx tests/*.spec.ts",
-    "collect": "node extractors/collect.js",
+    "collect": "node dist/extractors/collect.js",
     "lint": "eslint index.ts extractors public tests --ext .ts",
     "lint:fix": "eslint index.ts extractors public tests --ext .ts --fix",
     "format": "prettier --write \"views/**/*.ejs\""
+  },
+  "c8": {
+    "all": true,
+    "include": [
+      "extractors/*.ts"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "tests/**",
+      "dist",
+      "public"
+    ],
+    "report-dir": "./build/reports/coverage",
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
   },
   "license": "MIT",
   "dependencies": {
