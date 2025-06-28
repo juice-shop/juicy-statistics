@@ -62,7 +62,6 @@ app.get('/', async (req, res) => {
             : undefined
       })
     )
-
   })
 
   const npm = statsNpm.getStats()
