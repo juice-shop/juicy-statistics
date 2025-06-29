@@ -35,7 +35,6 @@ function drawCharts (): void {
   //  Npm ----
   adjust()
   const npmArr = npm.split(',')
-  console.log(npm)
   const npmData = []
   npmData.push(['Date', 'Downloads'])
   for (let i = 0; i < npmArr.length; i += 2) {
