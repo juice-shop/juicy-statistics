@@ -51,9 +51,6 @@ app.get('/', async (req, res) => {
 
   const categoriesData: CategoriesData = { categories: [], tags: [] }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  let tags: string[] = []
-
   await categories.getData().then((data: any) => {
     categoriesData.categories = data.categories.map(
       (entry: Array<string | number>) => ({
@@ -65,8 +62,6 @@ app.get('/', async (req, res) => {
             : undefined
       })
     )
-
-    tags = data.tags.map((tagArr: Array<string | number>) => String(tagArr[0]))
   })
 
   const npm = statsNpm.getStats()

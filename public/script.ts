@@ -4,7 +4,7 @@
  */
 
 declare const google: any
-declare let npm: string[]
+declare let npm: string
 declare let sf: string
 declare let docJs: string
 declare let docJsCtf: string
@@ -34,10 +34,11 @@ const adjust = (): void => {
 function drawCharts (): void {
   //  Npm ----
   adjust()
+  const npmArr = npm.split(',')
   const npmData = []
   npmData.push(['Date', 'Downloads'])
-  for (let i = 0; i < npm.length; i += 2) {
-    npmData.push([npm[i], parseInt(npm[i + 1], 10)])
+  for (let i = 0; i < npmArr.length; i += 2) {
+    npmData.push([npmArr[i], parseInt(npmArr[i + 1], 10)])
   }
   let data = google.visualization.arrayToDataTable(npmData)
 
