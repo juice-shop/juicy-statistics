@@ -7,14 +7,15 @@
 
 import { test, describe } from 'node:test'
 import assert from 'node:assert/strict'
-import fs from 'node:fs'
-
-const data = JSON.parse(fs.readFileSync('statsData/npm.json', 'utf-8'))
+import { collectData, getStats } from '../extractors/npm'
 
 describe('test correctness of the data', () => {
   describe('for npm', () => {
     test('should match with the data on server', async (t) => {
+      await collectData() // <-- This line added to get coverage + updated data
+      const data = getStats()
       const recentData = data.slice(-30)
+
       for (const [date, downloads] of recentData) {
         const response = await fetch(`https://api.npmjs.org/downloads/point/${date}:${date}/juice-shop-ctf-cli`)
         const npmData = await response.json()
@@ -24,6 +25,7 @@ describe('test correctness of the data', () => {
     })
 
     test('should have data for all the dates', () => {
+      const data = getStats()
       const startDate = new Date('2021-04-05')
       const endDate = new Date()
       endDate.setDate(endDate.getDate() - 1)
