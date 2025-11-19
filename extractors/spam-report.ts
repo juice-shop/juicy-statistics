@@ -8,12 +8,7 @@ import path from 'path'
 
 const LABEL = 'spam'
 const GITHUB_API_URL = 'https://api.github.com/repos/juice-shop/juice-shop/issues'
-const HISTORY_FILE = path.join(
-  __dirname,
-  '..',
-  'statsData',
-  'spam-report.json'
-)
+const HISTORY_FILE = path.join('statsData', 'spam-report.json')
 
 const getDateString = (date: Date): string => date.toISOString().split('T')[0]
 
@@ -28,7 +23,7 @@ interface CollectDataResult {
   totalSpamIssues: number
 }
 
-const collectData = async (date: Date): Promise<CollectDataResult> => {
+const collectForDate = async (date: Date): Promise<CollectDataResult> => {
   const startDate = new Date(date)
   startDate.setUTCHours(0, 0, 0, 0)
   const endDate = new Date(date)
@@ -72,32 +67,27 @@ const collectData = async (date: Date): Promise<CollectDataResult> => {
   }
 }
 
-const fetchData = async (): Promise<CollectDataResult[]> => {
-  const fileContent = fs.readFileSync(HISTORY_FILE, 'utf-8')
-
+const collectData = async (): Promise<void> => {
   const today = new Date()
   const todayString = getDateString(today)
 
-  interface HistoryEntry {
-    date: string
-    totalSpamPRs: number
-    totalSpamIssues: number
-  }
+  const fileContent = fs.readFileSync(HISTORY_FILE, 'utf-8')
+  const history: CollectDataResult[] = JSON.parse(fileContent)
 
-  const history: HistoryEntry[] = JSON.parse(fileContent)
-
-  if (history.some((entry: HistoryEntry) => entry.date === todayString)) {
+  if (history.some((entry) => entry.date === todayString)) {
     console.log(`Data for ${todayString} already exists. Skipping.`)
-    return history
+    return
   }
 
-  const dailyData = await collectData(today)
-  if (dailyData !== null && dailyData !== undefined) {
-    history.push(dailyData)
-    fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2))
-    console.log(`✅ Added data for ${todayString}`)
-  }
+  const dailyData = await collectForDate(today)
+  history.push(dailyData)
+  fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2))
+  console.log(`✅ Added data for ${todayString}`)
+}
 
+const fetchData = async (): Promise<CollectDataResult[]> => {
+  const fileContent = fs.readFileSync(HISTORY_FILE, 'utf-8')
+  const history: CollectDataResult[] = JSON.parse(fileContent)
   return history
 }
 

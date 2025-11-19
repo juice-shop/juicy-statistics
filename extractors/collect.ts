@@ -13,7 +13,7 @@ docker.collectData().then(
     console.log(`Sucessfully collected docker stats for ${new Date().toString()}`)
   }
 ).catch((error) => {
-  console.log('failed to collect docker stats', error)
+  console.log('Failed to collect docker stats', error)
 })
 
 github.collectData().then(
@@ -21,7 +21,7 @@ github.collectData().then(
     console.log(`Sucessfully collected github stats for ${new Date().toString()}`)
   }
 ).catch((error) => {
-  console.log('failed to collect github stats', error)
+  console.log('Failed to collect github stats', error)
 })
 
 npm.collectData().then(
@@ -29,13 +29,13 @@ npm.collectData().then(
     console.log(`Sucessfully collected npm stats for ${new Date().toString()}`)
   }
 ).catch((error) => {
-  console.log('failed to collect npm stats', error)
+  console.log('Failed to collect npm stats', error)
 })
 
-spamReport.collectData(new Date(Date.now())).then(
+spamReport.collectData().then(
   () => {
     console.log(`Sucessfully collected spam-report stats for ${new Date().toString()}`)
   }
 ).catch((error) => {
-  console.log('failed to collect spam-report stats', error)
+  console.log('Failed to collect spam-report stats', error)
 })
