@@ -6,6 +6,7 @@
 import * as docker from './docker'
 import * as github from './github'
 import * as npm from './npm'
+import * as spamReport from './spam-report'
 
 docker.collectData().then(
   () => {
@@ -29,4 +30,12 @@ npm.collectData().then(
   }
 ).catch((error) => {
   console.log('failed to collect npm stats', error)
+})
+
+spamReport.collectData(new Date(Date.now())).then(
+  () => {
+    console.log(`Sucessfully collected spam-report stats for ${new Date().toString()}`)
+  }
+).catch((error) => {
+  console.log('failed to collect spam-report stats', error)
 })
