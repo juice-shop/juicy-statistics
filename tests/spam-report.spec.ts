@@ -5,10 +5,9 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 
-// @ts-nocheck
 import { fetchData } from '../extractors/spam-report'
 
-test('spam-report.fetchData returns array of daily records with expected fields', async () => {
+test('spam-report.fetchData returns array of daily records with expected fields', async () => { // eslint-disable-line @typescript-eslint/no-floating-promises
   const data = await fetchData()
 
   assert.ok(Array.isArray(data), 'result should be an array')
@@ -30,9 +29,7 @@ test('spam-report.fetchData returns array of daily records with expected fields'
   for (let i = 1; i < data.length; i++) {
     const prevEntry = data[i - 1]
     const currEntry = data[i]
-    // @ts-ignore - runtime check only
     const prev = new Date(prevEntry.date)
-    // @ts-ignore - runtime check only
     const curr = new Date(currEntry.date)
     assert.ok(prev <= curr, `dates should be non-decreasing at index ${i}`)
   }

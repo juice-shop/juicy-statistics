@@ -8,7 +8,7 @@ import assert from 'node:assert/strict'
 // Import from project source
 import { fetchData } from '../extractors/github'
 
-test('github.fetchData returns a matrix with header row and consistent lengths', () => {
+test('github.fetchData returns a matrix with header row and consistent lengths', () => { // eslint-disable-line @typescript-eslint/no-floating-promises
   const { data, releases } = fetchData()
 
   // Should have at least header + 1 data row
