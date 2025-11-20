@@ -47,7 +47,6 @@ const collectForDate = async (date: Date) => {
   }
 
   while (true) {
-      console.log(`${GITHUB_API_URL}?labels=${LABEL}&state=closed&since=${startDate.toISOString()}&until=${endDate.toISOString()}&per_page=100&page=${page}`)
     const response = await fetch(
       `${GITHUB_API_URL}?labels=${LABEL}&state=closed&since=${startDate.toISOString()}&until=${endDate.toISOString()}&per_page=100&page=${page}`,
       { headers }
