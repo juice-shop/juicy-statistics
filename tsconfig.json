@@ -15,6 +15,5 @@
     "extractors/**/*.ts",
     "tests/**/*.ts",
     "public/**/*.ts",
-    "tests/testData.spec.ts"
   ]
 }
