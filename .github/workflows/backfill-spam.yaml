@@ -20,6 +20,8 @@ jobs:
         run: npm run build
       - name: "Collect statistics"
         run: node ./dist/extractors/backfill-spam-report.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@8621497c8c39c72f3e2a999a26b4ca1b5058a842 #v5.0.1
         with:
           commit_message: "Persist collected statistics"
