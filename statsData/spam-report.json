@@ -10128,5 +10128,10 @@
     "date": "2025-12-02",
     "totalSpamPRs": 0,
     "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-12-03",
+    "totalSpamPRs": 3,
+    "totalSpamIssues": 0
   }
 ]
