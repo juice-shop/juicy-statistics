@@ -7,6 +7,15 @@ import * as docker from './docker'
 import * as github from './github'
 import * as npm from './npm'
 import * as spamReport from './spam-report'
+import * as bundleSize from './bundle-size'
+
+bundleSize.collectData().then(
+  () => {
+    console.log(`Sucessfully collected bundle-size stats for ${new Date().toString()}`)
+  }
+).catch((error) => {
+  console.log('Failed to collect bundle-size stats', error)
+})
 
 docker.collectData().then(
   () => {
