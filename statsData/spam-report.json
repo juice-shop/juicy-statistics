@@ -10448,5 +10448,10 @@
     "date": "2026-02-04",
     "totalSpamPRs": 0,
     "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-02-05",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
   }
 ]
