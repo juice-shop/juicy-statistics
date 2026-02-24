@@ -10,85 +10,101 @@ const LABEL = 'spam'
 const GITHUB_API_URL = 'https://api.github.com/repos/juice-shop/juice-shop/issues'
 const HISTORY_FILE = path.join('statsData', 'spam-report.json')
 
-const getDateString = (date: Date): string => date.toISOString().split('T')[0]
-
-interface SpamItem {
-  closed_at: string
-  pull_request?: object | null
-}
-
 interface CollectDataResult {
   date: string
   totalSpamPRs: number
   totalSpamIssues: number
 }
 
-const collectForDate = async (date: Date): Promise<CollectDataResult> => {
-  const startDate = new Date(date)
-  startDate.setUTCHours(0, 0, 0, 0)
-  const endDate = new Date(date)
-  endDate.setUTCHours(23, 59, 59, 999)
+interface GitHubIssue {
+  closed_at: string | null
+  pull_request?: object
+}
 
-  const spamIssues: SpamItem[] = []
-  const spamPRs: SpamItem[] = []
+const collectAllSpamData = async (): Promise<CollectDataResult[]> => {
+  const allItems: GitHubIssue[] = []
   let page = 1
-
   const headers: Record<string, string> = {
     Accept: 'application/vnd.github.v3+json'
   }
 
+  if (process.env.GITHUB_TOKEN !== undefined) {
+    headers.Authorization = `token ${process.env.GITHUB_TOKEN}`
+  }
+
   while (true) {
     const response: Response = await fetch(
-      `${GITHUB_API_URL}?labels=${LABEL}&state=closed&since=${startDate.toISOString()}&until=${endDate.toISOString()}&per_page=100&page=${page}`,
+      `${GITHUB_API_URL}?labels=${LABEL}&state=closed&per_page=100&page=${page}`,
       { headers }
     )
 
-    const data: SpamItem[] = await response.json()
+    const rateLimitRemaining = response.headers.get('x-ratelimit-remaining')
+    const rateLimitReset = response.headers.get('x-ratelimit-reset')
+
+    if (rateLimitRemaining !== null && parseInt(rateLimitRemaining) < 10) {
+      const resetTime = rateLimitReset !== null ? parseInt(rateLimitReset) * 1000 : Date.now() + 60000
+      const waitTime = Math.max(resetTime - Date.now(), 0) + 1000
+      console.log(`⏳ Rate limit approaching (${rateLimitRemaining} remaining). Waiting ${Math.ceil(waitTime / 1000)}s...`)
+      await new Promise(resolve => setTimeout(resolve, waitTime))
+    }
+
+    const data: GitHubIssue[] = await response.json()
     if (!Array.isArray(data) || data.length === 0) break
 
-    data.forEach((item: SpamItem) => {
-      const closedDate = new Date(item.closed_at)
-      if (closedDate >= startDate && closedDate <= endDate) {
-        if (item.pull_request !== undefined && item.pull_request !== null) {
-          spamPRs.push(item)
-        } else {
-          spamIssues.push(item)
-        }
-      }
-    })
-
+    allItems.push(...data)
+    console.log(`📥 Fetched page ${page} (${allItems.length} items total)`)
     page++
   }
 
-  return {
-    date: getDateString(startDate),
-    totalSpamPRs: spamPRs.length,
-    totalSpamIssues: spamIssues.length
-  }
+  const pullRequests = allItems.filter(item => item.pull_request !== undefined)
+  const issues = allItems.filter(item => item.pull_request === undefined)
+
+  const prsByDate = pullRequests.reduce<Record<string, number>>((acc, pr) => {
+    if (pr.closed_at !== null) {
+      const date = pr.closed_at.split('T')[0]
+      acc[date] = (acc[date] ?? 0) + 1
+    }
+    return acc
+  }, {})
+
+  const issuesByDate = issues.reduce<Record<string, number>>((acc, issue) => {
+    if (issue.closed_at !== null) {
+      const date = issue.closed_at.split('T')[0]
+      acc[date] = (acc[date] ?? 0) + 1
+    }
+    return acc
+  }, {})
+
+  const allDates = new Set([...Object.keys(prsByDate), ...Object.keys(issuesByDate)])
+
+  return Array.from(allDates).sort().map(date => ({
+    date,
+    totalSpamPRs: prsByDate[date] ?? 0,
+    totalSpamIssues: issuesByDate[date] ?? 0
+  }))
 }
 
 const collectData = async (): Promise<void> => {
-  const today = new Date()
-  const todayString = getDateString(today)
-
-  const fileContent = fs.readFileSync(HISTORY_FILE, 'utf-8')
-  const history: CollectDataResult[] = JSON.parse(fileContent)
-
-  if (history.some((entry) => entry.date === todayString)) {
-    console.log(`Data for ${todayString} already exists. Skipping.`)
-    return
-  }
-
-  const dailyData = await collectForDate(today)
-  history.push(dailyData)
-  fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2))
-  console.log(`✅ Added data for ${todayString}`)
+  const allData = await collectAllSpamData()
+  fs.writeFileSync(HISTORY_FILE, JSON.stringify(allData, null, 2))
+  console.log(`✅ Updated spam report with ${allData.length} dates`)
 }
 
 const fetchData = async (): Promise<CollectDataResult[]> => {
   const fileContent = fs.readFileSync(HISTORY_FILE, 'utf-8')
-  const history: CollectDataResult[] = JSON.parse(fileContent)
-  return history
+  return JSON.parse(fileContent)
+}
+
+if (require.main === module) {
+  collectData().then(
+    () => {
+      console.log(`Successfully collected spam-report stats for ${new Date().toString()}`)
+      process.exit(0)
+    }
+  ).catch((error) => {
+    console.log('Failed to collect spam-report stats', error)
+    process.exit(1)
+  })
 }
 
 export {

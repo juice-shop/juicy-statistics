@@ -1,0 +1,80 @@
+name: "One-time: Re-fetch all spam data"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  refetch-spam:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Check out Git repository"
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+
+    - name: "Check if spam-report.json exists"
+      id: check_file
+      run: |
+        if [ -f "statsData/spam-report.json" ]; then
+          echo "exists=true" >> $GITHUB_OUTPUT
+          echo "⚠️  spam-report.json already exists. This workflow should only run once to regenerate the data."
+          echo "If you want to re-run, delete statsData/spam-report.json first."
+        else
+          echo "exists=false" >> $GITHUB_OUTPUT
+          echo "✅ spam-report.json does not exist. Proceeding with data collection."
+        fi
+
+    - name: "Exit if file exists"
+      if: steps.check_file.outputs.exists == 'true'
+      run: exit 1
+
+    - name: "Use Node.js 22"
+      uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af #v4.1.0
+      with:
+        node-version: 22
+
+    - name: "Install dependencies"
+      run: npm install
+
+    - name: "Build project"
+      run: npm run build
+
+    - name: "Create statsData directory if needed"
+      run: mkdir -p statsData
+
+    - name: "Re-fetch all spam data"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "🔄 Starting complete spam data collection..."
+        echo "This will fetch all closed spam PRs and issues from GitHub API."
+        echo "Rate limiting is handled automatically."
+        node dist/extractors/spam-report.js
+
+    - name: "Verify data was collected"
+      run: |
+        if [ -f "statsData/spam-report.json" ]; then
+          echo "✅ Successfully created spam-report.json"
+          echo "File size: $(du -h statsData/spam-report.json | cut -f1)"
+          echo "Number of dates: $(jq '. | length' statsData/spam-report.json)"
+        else
+          echo "❌ Failed to create spam-report.json"
+          exit 1
+        fi
+
+    - name: "Commit and push results"
+      uses: stefanzweifel/git-auto-commit-action@8621497c8c39c72f3e2a999a26b4ca1b5058a842 #v5.0.1
+      with:
+        commit_message: "Re-fetch complete spam data history"
+        branch: ${{ github.head_ref }}
+        commit_options: '--signoff'
+        commit_user_name: JuiceShopBot
+        commit_user_email: 61591748+JuiceShopBot@users.noreply.github.com
+        commit_author: JuiceShopBot <61591748+JuiceShopBot@users.noreply.github.com>
+
+    - name: "Workflow completion"
+      run: |
+        echo "✅ Spam data re-fetch completed successfully!"
+        echo ""
+        echo "⚠️  IMPORTANT: This was a one-time operation."
+        echo "Please delete this workflow file (.github/workflows/refetch-spam-data.yml) now."
+        echo "Future updates will use the regular scheduled workflow."
+
