@@ -104,6 +104,22 @@ const collectData = async (): Promise<void> => {
   }
 
   entries.sort((a, b) => compareSemver(a.tag, b.tag))
+
+  // Fetch challenge count from the develop branch as a "snapshot"
+  try {
+    const developUrl = 'https://raw.githubusercontent.com/juice-shop/juice-shop/refs/heads/develop/data/static/challenges.yml'
+    const developResponse = await fetch(developUrl)
+    if (developResponse.ok) {
+      const developContent = await developResponse.text()
+      const developCount = countChallengesInSource(developContent, 'yaml')
+      entries.push({ tag: 'snapshot', challenges: developCount })
+    } else {
+      console.warn(`Failed to fetch develop branch challenges: ${developResponse.status}`)
+    }
+  } catch (error) {
+    console.warn('Error fetching develop branch challenges:', error)
+  }
+
   await fs.writeFile('statsData/challengeCounts.json', JSON.stringify(entries))
 }
 
