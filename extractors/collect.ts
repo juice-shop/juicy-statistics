@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+import * as challengeCounts from './challengeCounts'
 import * as docker from './docker'
 import * as dockerImageSizes from './dockerImageSizes'
 import * as github from './github'
@@ -47,4 +48,12 @@ dockerImageSizes.collectData().then(
   }
 ).catch((error) => {
   console.log('Failed to collect docker image sizes', error)
+})
+
+challengeCounts.collectData().then(
+  () => {
+    console.log(`Sucessfully collected challenge counts for ${new Date().toString()}`)
+  }
+).catch((error) => {
+  console.log('Failed to collect challenge counts', error)
 })

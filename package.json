@@ -69,7 +69,10 @@
       "github",
       "githubReleases",
       "categories",
-      "tags"
+      "tags",
+      "spamStats",
+      "dockerImageSizes",
+      "challengeCounts"
     ]
   },
   "engines": {

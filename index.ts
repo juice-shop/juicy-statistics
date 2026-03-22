@@ -6,6 +6,7 @@
 import express from 'express'
 import path from 'path'
 import * as categories from './extractors/categories'
+import * as challengeCounts from './extractors/challengeCounts'
 import * as docker from './extractors/docker'
 import * as dockerImageSizes from './extractors/dockerImageSizes'
 import * as github from './extractors/github'
@@ -70,6 +71,7 @@ app.get('/', async (req, res) => {
   const githubData = github.fetchData()
   const spamData = await spamReport.fetchData()
   const dockerImageSizesData = await dockerImageSizes.fetchData()
+  const challengeCountsData = await challengeCounts.fetchData()
 
   res.render('index.ejs', {
     sourceForge: sourceForgeCsv,
@@ -81,7 +83,8 @@ app.get('/', async (req, res) => {
     tags: tagsCsv,
     categories: categoriesCsv,
     spamStats: spamData,
-    dockerImageSizes: dockerImageSizesData
+    dockerImageSizes: dockerImageSizesData,
+    challengeCounts: challengeCountsData
   })
 })
 

@@ -72,6 +72,7 @@
       let tags = "<%=tags%>"
       let spamStats = <%- JSON.stringify(spamStats) %>;
       let dockerImageSizes = <%- JSON.stringify(dockerImageSizes) %>;
+      let challengeCounts = <%- JSON.stringify(challengeCounts) %>;
     </script>
     <script type="text/javascript" src="script.js"></script>
   </head>
@@ -194,6 +195,12 @@
         <div class="card-body">
           <br /><br />
           <div id="dockerImageSizes" class="box"></div>
+        </div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <br /><br />
+          <div id="challengeCounts" class="box"></div>
         </div>
       </div>
     </div>

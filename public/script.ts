@@ -14,6 +14,7 @@ declare let categories: string
 declare let tags: string
 declare let spamStats: Array<{ date: string, totalSpamIssues: number, totalSpamPRs: number }>
 declare let dockerImageSizes: Array<{ tag: string, size: number }>
+declare let challengeCounts: Array<{ tag: string, challenges: number }>
 
 google.charts.load('current', { packages: ['corechart'] })
 google.charts.setOnLoadCallback(drawCharts)
@@ -225,6 +226,22 @@ function drawCharts (): void {
       title: 'Docker Image Sizes by Release (bkimminich/juice-shop)',
       legend: { position: 'none' },
       vAxis: { title: 'Size (MB)' },
+      hAxis: { title: 'Version', slantedText: true, slantedTextAngle: 45 }
+    })
+  }
+  // Challenge Counts per Release ----
+  if (challengeCounts.length > 0) {
+    const challengeData = []
+    challengeData.push(['Version', 'Challenges'])
+    for (const entry of challengeCounts) {
+      challengeData.push([entry.tag, entry.challenges])
+    }
+    data = google.visualization.arrayToDataTable(challengeData)
+    chart = new google.visualization.ColumnChart(document.getElementById('challengeCounts'))
+    chart.draw(data, {
+      title: 'Number of Challenges per Release (juice-shop)',
+      legend: { position: 'none' },
+      vAxis: { title: 'Challenges' },
       hAxis: { title: 'Version', slantedText: true, slantedTextAngle: 45 }
     })
   }
