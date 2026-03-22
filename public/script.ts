@@ -216,7 +216,7 @@ function drawCharts (): void {
   // Docker Image Sizes by Release ----
   if (dockerImageSizes.length > 0) {
     const imageSizeData = []
-    imageSizeData.push(['Version', 'Image Size (MB)'])
+    imageSizeData.push(['Version', 'Compressed Image Size (MB)'])
     for (const entry of dockerImageSizes) {
       imageSizeData.push([entry.tag, Math.round(entry.size / 1024 / 1024 * 100) / 100])
     }
