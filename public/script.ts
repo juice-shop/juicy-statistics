@@ -13,6 +13,7 @@ declare let githubReleases: number
 declare let categories: string
 declare let tags: string
 declare let spamStats: Array<{ date: string, totalSpamIssues: number, totalSpamPRs: number }>
+declare let dockerImageSizes: Array<{ tag: string, size: number }>
 
 google.charts.load('current', { packages: ['corechart'] })
 google.charts.setOnLoadCallback(drawCharts)
@@ -211,6 +212,22 @@ function drawCharts (): void {
     pointSize: 4,
     tooltip: { trigger: 'focus' }
   })
+  // Docker Image Sizes by Release ----
+  if (dockerImageSizes.length > 0) {
+    const imageSizeData = []
+    imageSizeData.push(['Version', 'Image Size (MB)'])
+    for (const entry of dockerImageSizes) {
+      imageSizeData.push([entry.tag, Math.round(entry.size / 1024 / 1024 * 100) / 100])
+    }
+    data = google.visualization.arrayToDataTable(imageSizeData)
+    chart = new google.visualization.ColumnChart(document.getElementById('dockerImageSizes'))
+    chart.draw(data, {
+      title: 'Docker Image Sizes by Release (bkimminich/juice-shop)',
+      legend: { position: 'none' },
+      vAxis: { title: 'Size (MB)' },
+      hAxis: { title: 'Version', slantedText: true, slantedTextAngle: 45 }
+    })
+  }
 }
 
 document.onload = adjust

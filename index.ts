@@ -7,6 +7,7 @@ import express from 'express'
 import path from 'path'
 import * as categories from './extractors/categories'
 import * as docker from './extractors/docker'
+import * as dockerImageSizes from './extractors/dockerImageSizes'
 import * as github from './extractors/github'
 import * as statsNpm from './extractors/npm'
 import * as statsSf from './extractors/sourceForge'
@@ -68,6 +69,7 @@ app.get('/', async (req, res) => {
   const dockerData = docker.fetchData()
   const githubData = github.fetchData()
   const spamData = await spamReport.fetchData()
+  const dockerImageSizesData = await dockerImageSizes.fetchData()
 
   res.render('index.ejs', {
     sourceForge: sourceForgeCsv,
@@ -78,7 +80,8 @@ app.get('/', async (req, res) => {
     githubReleases: githubData.releases,
     tags: tagsCsv,
     categories: categoriesCsv,
-    spamStats: spamData
+    spamStats: spamData,
+    dockerImageSizes: dockerImageSizesData
   })
 })
 

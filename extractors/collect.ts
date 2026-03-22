@@ -4,6 +4,7 @@
  */
 
 import * as docker from './docker'
+import * as dockerImageSizes from './dockerImageSizes'
 import * as github from './github'
 import * as npm from './npm'
 import * as spamReport from './spam-report'
@@ -38,4 +39,12 @@ spamReport.collectData().then(
   }
 ).catch((error) => {
   console.log('Failed to collect spam-report stats', error)
+})
+
+dockerImageSizes.collectData().then(
+  () => {
+    console.log(`Sucessfully collected docker image sizes for ${new Date().toString()}`)
+  }
+).catch((error) => {
+  console.log('Failed to collect docker image sizes', error)
 })

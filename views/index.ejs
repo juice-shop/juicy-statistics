@@ -71,6 +71,7 @@
       let categories = "<%=categories%>"
       let tags = "<%=tags%>"
       let spamStats = <%- JSON.stringify(spamStats) %>;
+      let dockerImageSizes = <%- JSON.stringify(dockerImageSizes) %>;
     </script>
     <script type="text/javascript" src="script.js"></script>
   </head>
@@ -183,6 +184,16 @@
         </div> -->
         <div class="card-body">
           <div id="spamChart" class="box"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Release History Comparisons -->
+    <div class="wide">
+      <h3 class="mt-4 mb-3">Release History Comparisons</h3>
+      <div class="card">
+        <div class="card-body">
+          <br /><br />
+          <div id="dockerImageSizes" class="box"></div>
         </div>
       </div>
     </div>
