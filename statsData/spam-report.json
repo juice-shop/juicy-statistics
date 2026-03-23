@@ -2411,7 +2411,7 @@
   },
   {
     "date": "2026-03-20",
-    "totalSpamPRs": 2,
+    "totalSpamPRs": 1,
     "totalSpamIssues": 3
   },
   {
@@ -2421,12 +2421,12 @@
   },
   {
     "date": "2026-03-22",
-    "totalSpamPRs": 6,
+    "totalSpamPRs": 5,
     "totalSpamIssues": 0
   },
   {
     "date": "2026-03-23",
-    "totalSpamPRs": 1,
+    "totalSpamPRs": 3,
     "totalSpamIssues": 0
   }
 ]
