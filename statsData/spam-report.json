@@ -160,11 +160,6 @@
     "totalSpamIssues": 0
   },
   {
-    "date": "2021-10-13",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
     "date": "2021-10-14",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
@@ -2426,7 +2421,12 @@
   },
   {
     "date": "2026-03-23",
-    "totalSpamPRs": 3,
+    "totalSpamPRs": 10,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-03-24",
+    "totalSpamPRs": 2,
     "totalSpamIssues": 0
   }
 ]
