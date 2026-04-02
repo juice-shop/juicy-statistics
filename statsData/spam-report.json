@@ -2466,7 +2466,12 @@
   },
   {
     "date": "2026-04-01",
-    "totalSpamPRs": 3,
+    "totalSpamPRs": 6,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-04-02",
+    "totalSpamPRs": 1,
     "totalSpamIssues": 0
   }
 ]
