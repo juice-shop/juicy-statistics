@@ -2501,7 +2501,12 @@
   },
   {
     "date": "2026-04-08",
-    "totalSpamPRs": 1,
+    "totalSpamPRs": 5,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-04-09",
+    "totalSpamPRs": 2,
     "totalSpamIssues": 0
   }
 ]
