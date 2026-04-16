@@ -2523,5 +2523,15 @@
     "date": "2026-04-14",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-04-15",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-04-16",
+    "totalSpamPRs": 3,
+    "totalSpamIssues": 0
   }
 ]
