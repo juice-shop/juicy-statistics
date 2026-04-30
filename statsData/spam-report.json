@@ -610,7 +610,52 @@
     "totalSpamIssues": 0
   },
   {
+    "date": "2023-07-25",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-07-26",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-08-03",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-08-08",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-08-14",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2023-08-15",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-08-24",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-08-28",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-08-30",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-08-31",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
@@ -636,6 +681,16 @@
   },
   {
     "date": "2023-09-15",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-09-16",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-09-20",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
@@ -680,9 +735,59 @@
     "totalSpamIssues": 0
   },
   {
+    "date": "2023-10-22",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-10-27",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-10-30",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2023-11-08",
     "totalSpamPRs": 0,
     "totalSpamIssues": 1
+  },
+  {
+    "date": "2023-11-09",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-11-10",
+    "totalSpamPRs": 3,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-11-13",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-11-14",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-11-15",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-11-16",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2023-11-17",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
   },
   {
     "date": "2023-11-29",
@@ -715,8 +820,23 @@
     "totalSpamIssues": 0
   },
   {
-    "date": "2024-01-31",
+    "date": "2024-01-18",
+    "totalSpamPRs": 3,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-01-19",
     "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-01-30",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-01-31",
+    "totalSpamPRs": 2,
     "totalSpamIssues": 0
   },
   {
@@ -825,6 +945,11 @@
     "totalSpamIssues": 0
   },
   {
+    "date": "2024-04-05",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2024-04-10",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
@@ -880,13 +1005,198 @@
     "totalSpamIssues": 0
   },
   {
+    "date": "2024-05-12",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-05-15",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-05-16",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-05-24",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-05-27",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-05-29",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2024-06-02",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-06-05",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-06-11",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-06-17",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-06-20",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-06-25",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-06-27",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
   {
     "date": "2024-07-03",
     "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-07-08",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-07-16",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-07-22",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-07-23",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-07-24",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-07-25",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-07-30",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-01",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-05",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-09",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-11",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-12",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-18",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-19",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-22",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-23",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-25",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-27",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-08-29",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-04",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-06",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-07",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-12",
+    "totalSpamPRs": 4,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-13",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-15",
+    "totalSpamPRs": 3,
     "totalSpamIssues": 0
   },
   {
@@ -900,8 +1210,133 @@
     "totalSpamIssues": 0
   },
   {
+    "date": "2024-09-22",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-23",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-24",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-09-28",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-01",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-12",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-13",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-14",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-16",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-18",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-21",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-22",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-23",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-10-29",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-01",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-04",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-06",
+    "totalSpamPRs": 5,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-07",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2024-11-11",
     "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-14",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-15",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-20",
+    "totalSpamPRs": 3,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-22",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-24",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-25",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-11-26",
+    "totalSpamPRs": 2,
     "totalSpamIssues": 0
   },
   {
@@ -920,12 +1355,37 @@
     "totalSpamIssues": 1
   },
   {
+    "date": "2024-12-03",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2024-12-04",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
   {
+    "date": "2024-12-07",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-12-09",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2024-12-10",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2024-12-16",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-01-03",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
@@ -942,6 +1402,21 @@
   {
     "date": "2025-01-16",
     "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-01-22",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-01-28",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-01-29",
+    "totalSpamPRs": 2,
     "totalSpamIssues": 0
   },
   {
@@ -965,6 +1440,11 @@
     "totalSpamIssues": 0
   },
   {
+    "date": "2025-02-05",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2025-02-07",
     "totalSpamPRs": 0,
     "totalSpamIssues": 1
@@ -975,7 +1455,22 @@
     "totalSpamIssues": 0
   },
   {
+    "date": "2025-02-19",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2025-02-22",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-02-24",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-02-25",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
@@ -1465,6 +1960,11 @@
     "totalSpamIssues": 0
   },
   {
+    "date": "2025-09-29",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
     "date": "2025-09-30",
     "totalSpamPRs": 2,
     "totalSpamIssues": 0
@@ -1501,7 +2001,7 @@
   },
   {
     "date": "2025-10-14",
-    "totalSpamPRs": 2,
+    "totalSpamPRs": 3,
     "totalSpamIssues": 0
   },
   {
@@ -1511,6 +2011,11 @@
   },
   {
     "date": "2025-10-16",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2025-10-19",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
@@ -1636,12 +2141,12 @@
   },
   {
     "date": "2025-12-03",
-    "totalSpamPRs": 6,
+    "totalSpamPRs": 8,
     "totalSpamIssues": 0
   },
   {
     "date": "2025-12-04",
-    "totalSpamPRs": 1,
+    "totalSpamPRs": 3,
     "totalSpamIssues": 0
   },
   {
@@ -1726,7 +2231,7 @@
   },
   {
     "date": "2026-01-22",
-    "totalSpamPRs": 1,
+    "totalSpamPRs": 2,
     "totalSpamIssues": 1
   },
   {
@@ -1781,6 +2286,11 @@
   },
   {
     "date": "2026-02-13",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-02-17",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
@@ -1876,7 +2386,7 @@
   },
   {
     "date": "2026-03-16",
-    "totalSpamPRs": 4,
+    "totalSpamPRs": 7,
     "totalSpamIssues": 0
   },
   {
@@ -1911,12 +2421,12 @@
   },
   {
     "date": "2026-03-23",
-    "totalSpamPRs": 6,
+    "totalSpamPRs": 10,
     "totalSpamIssues": 0
   },
   {
     "date": "2026-03-24",
-    "totalSpamPRs": 6,
+    "totalSpamPRs": 7,
     "totalSpamIssues": 0
   },
   {
@@ -1996,7 +2506,7 @@
   },
   {
     "date": "2026-04-09",
-    "totalSpamPRs": 3,
+    "totalSpamPRs": 4,
     "totalSpamIssues": 0
   },
   {
@@ -2052,6 +2562,16 @@
   {
     "date": "2026-04-28",
     "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-04-29",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-04-30",
+    "totalSpamPRs": 1,
     "totalSpamIssues": 0
   }
 ]
