@@ -2708,5 +2708,15 @@
     "date": "2026-06-11",
     "totalSpamPRs": 2,
     "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-06-13",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-06-14",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
   }
 ]
