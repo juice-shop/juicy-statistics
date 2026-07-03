@@ -2753,5 +2753,10 @@
     "date": "2026-06-30",
     "totalSpamPRs": 2,
     "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-07-03",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
   }
 ]
