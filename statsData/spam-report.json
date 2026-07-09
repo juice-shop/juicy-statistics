@@ -341,7 +341,7 @@
   },
   {
     "date": "2022-08-08",
-    "totalSpamPRs": 3,
+    "totalSpamPRs": 2,
     "totalSpamIssues": 1
   },
   {
@@ -725,11 +725,6 @@
     "totalSpamIssues": 0
   },
   {
-    "date": "2023-10-20",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
     "date": "2023-10-21",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
@@ -900,11 +895,6 @@
     "totalSpamIssues": 0
   },
   {
-    "date": "2024-03-08",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
     "date": "2024-03-10",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
@@ -945,17 +935,7 @@
     "totalSpamIssues": 0
   },
   {
-    "date": "2024-04-05",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
     "date": "2024-04-10",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2024-04-12",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
@@ -1071,11 +1051,6 @@
   },
   {
     "date": "2024-07-03",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2024-07-08",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
@@ -1380,11 +1355,6 @@
     "totalSpamIssues": 0
   },
   {
-    "date": "2024-12-16",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
     "date": "2025-01-03",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
@@ -1562,11 +1532,6 @@
   {
     "date": "2025-04-04",
     "totalSpamPRs": 2,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2025-04-05",
-    "totalSpamPRs": 1,
     "totalSpamIssues": 0
   },
   {
@@ -2035,11 +2000,6 @@
     "totalSpamIssues": 0
   },
   {
-    "date": "2025-10-26",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
     "date": "2025-10-27",
     "totalSpamPRs": 4,
     "totalSpamIssues": 0
@@ -2076,7 +2036,7 @@
   },
   {
     "date": "2025-11-12",
-    "totalSpamPRs": 3,
+    "totalSpamPRs": 2,
     "totalSpamIssues": 0
   },
   {
@@ -2141,7 +2101,7 @@
   },
   {
     "date": "2025-12-03",
-    "totalSpamPRs": 8,
+    "totalSpamPRs": 7,
     "totalSpamIssues": 0
   },
   {
@@ -2766,6 +2726,11 @@
   },
   {
     "date": "2026-07-07",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-07-08",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   }
