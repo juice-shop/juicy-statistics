@@ -2912,7 +2912,7 @@
   {
     "date": "2026-09-21",
     "totalSpamPRs": 2,
-    "totalSpamIssues": 0
+    "totalSpamIssues": 1
   },
   {
     "date": "2026-09-22",
@@ -2937,6 +2937,11 @@
   {
     "date": "2026-09-30",
     "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-10-01",
+    "totalSpamPRs": 1,
     "totalSpamIssues": 0
   }
 ]
