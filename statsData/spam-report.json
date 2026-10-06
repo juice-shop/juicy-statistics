@@ -2948,5 +2948,15 @@
     "date": "2026-10-03",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-10-05",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-10-06",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
   }
 ]
