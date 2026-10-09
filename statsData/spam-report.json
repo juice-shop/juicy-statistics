@@ -2966,6 +2966,11 @@
   },
   {
     "date": "2026-10-08",
+    "totalSpamPRs": 2,
+    "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-10-09",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
   }
