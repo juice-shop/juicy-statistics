@@ -8,6 +8,7 @@ declare let npm: string
 declare let sf: string
 declare let docJs: string
 declare let docJsCtf: string
+declare let docMultiJuicer: string
 declare let github: string
 declare let githubReleases: number
 declare let categories: string
@@ -97,6 +98,25 @@ function drawCharts (): void {
   chart = new google.visualization.AreaChart(document.getElementById('docJsCtf'))
   chart.draw(data, {
     title: 'Docker pulls (bkimminich/juice-shop-ctf)',
+    lineWidth: 0.1,
+    legend: { position: 'bottom' },
+    vAxis: {
+      scaleType: 'log'
+    }
+  })
+
+  // Docker MultiJuicer ----
+  const docMultiJuicerArr = docMultiJuicer.split(',')
+  const docMultiJuicerData = []
+  docMultiJuicerData.push(['Date', 'Downloads'])
+  for (let i = 0; i < docMultiJuicerArr.length; i += 2) {
+    docMultiJuicerData.push([docMultiJuicerArr[i], parseInt(docMultiJuicerArr[i + 1], 10)])
+  }
+  data = google.visualization.arrayToDataTable(docMultiJuicerData)
+
+  chart = new google.visualization.AreaChart(document.getElementById('docMultiJuicer'))
+  chart.draw(data, {
+    title: 'Docker pulls (ghcr.io/juice-shop/multi-juicer/multi-juicer)',
     lineWidth: 0.1,
     legend: { position: 'bottom' },
     vAxis: {
