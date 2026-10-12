@@ -1,7 +1,16 @@
 <html>
   <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
     <title>OWASP Juice Shop - Open Source Statistics</title>
 
     <style>
@@ -148,6 +157,15 @@
 
     <div class="container graph">
       <div class="card">
+        <div class="card-body">
+          <br /><br />
+          <div class="box"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container graph">
+      <div class="card">
         <!-- This Graph shows the number of challenges per tag -->
         <div class="card-body">
           <br /><br />
@@ -180,7 +198,12 @@
         <div class="card-body">
           <br /><br />
           <h5 class="card-title">Frontend Bundle Analysis</h5>
-          <img src="https://raw.githubusercontent.com/juice-shop/juice-shop/refs/heads/master/screenshots/bundle-analysis.png" alt="Bundle Analysis" class="img-fluid" style="max-width: 100%; height: auto;" />
+          <img
+            src="https://raw.githubusercontent.com/juice-shop/juice-shop/refs/heads/master/screenshots/bundle-analysis.png"
+            alt="Bundle Analysis"
+            class="img-fluid"
+            style="max-width: 100%; height: auto"
+          />
           <br /><br />
         </div>
       </div>
@@ -199,8 +222,20 @@
       <div class="card mt-3">
         <div class="card-body">
           <br /><br />
-          <div style="position: relative;">
-            <span title="Versions not shown have since been removed or cleaned up by Docker Hub, or did not have a Docker image. v1.0.0 was backported as a re-release for the 10th year anniversary." style="cursor: help; position: absolute; top: 2px; right: 8px; z-index: 1; font-size: 1.2rem; color: #6c757d;">&#9432;</span>
+          <div style="position: relative">
+            <span
+              title="Versions not shown have since been removed or cleaned up by Docker Hub, or did not have a Docker image. v1.0.0 was backported as a re-release for the 10th year anniversary."
+              style="
+                cursor: help;
+                position: absolute;
+                top: 2px;
+                right: 8px;
+                z-index: 1;
+                font-size: 1.2rem;
+                color: #6c757d;
+              "
+              >&#9432;</span
+            >
             <div id="dockerImageSizes" class="box"></div>
           </div>
         </div>
