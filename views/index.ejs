@@ -56,6 +56,7 @@
       let sf = "<%= sourceForge %>"
       let docJs = "<%= dockerJs %>"
       let docJsCtf = "<%= dockerJsCtf %>"
+      let docMultiJuicer = "<%= dockerMultiJuicer %>"
       let github = "<%= github %>"
       let githubReleases = "<%= githubReleases %>"
       githubReleases = parseInt(githubReleases, 10)
@@ -131,6 +132,15 @@
         <div class="card-body">
           <br /><br />
           <div id="docJsCtf" class="box"></div>
+        </div>
+      </div>
+    </div>
+      <div class="container graph">
+      <div class="card">
+        <!-- This Graph shows the Docker pulls for MultiJuicer. -->
+        <div class="card-body">
+          <br /><br />
+          <div id="docMultiJuicer" class="box"></div>
         </div>
       </div>
     </div>

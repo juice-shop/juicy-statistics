@@ -78,6 +78,7 @@ app.get('/', async (req, res) => {
     npm,
     dockerJs: dockerData.jsData,
     dockerJsCtf: dockerData.jsCtfData,
+    dockerMultiJuicer: dockerData.multiJuicerData,
     github: githubData.data,
     githubReleases: githubData.releases,
     tags: tagsCsv,
