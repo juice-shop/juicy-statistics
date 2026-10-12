@@ -21,7 +21,7 @@ test('github.fetchData returns a matrix with header row and consistent lengths',
   assert.equal(header.length, releases, 'header length should equal releases count')
 
   // Known releases per source file (keep this in sync if source changes)
-  const expectedReleases = ['v9', 'v10', 'v11', 'v12', 'v13', 'v14', 'v15', 'v16', 'v17', 'v18', 'v19']
+  const expectedReleases = ['v9', 'v10', 'v11', 'v12', 'v13', 'v14', 'v15', 'v16', 'v17', 'v18', 'v19', 'v20']
   assert.deepEqual(header, expectedReleases, 'header should list expected releases')
 
   // Every data row should include date + one column per release
