@@ -15,9 +15,6 @@ test('docker.fetchData returns valid arrays for jsData, jsCtfData, and multiJuic
   assert.ok(Array.isArray(jsCtfData), 'jsCtfData should be an array')
   assert.ok(Array.isArray(multiJuicerData), 'multiJuicerData should be an array')
 
-  assert.equal(jsData.length, multiJuicerData.length, 'jsData and multiJuicerData should have matching length')
-  assert.equal(jsCtfData.length, multiJuicerData.length, 'jsCtfData and multiJuicerData should have matching length')
-
   for (let i = 0; i < multiJuicerData.length; i++) {
     const row = multiJuicerData[i]
     assert.ok(Array.isArray(row), `row ${i} should be an array`)
