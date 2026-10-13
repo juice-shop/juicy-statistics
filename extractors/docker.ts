@@ -6,7 +6,6 @@
 import fs from 'fs'
 
 const urlMultiJuicer = 'https://github.com/juice-shop/multi-juicer/pkgs/container/multi-juicer%2Fmulti-juicer'
-const legacyMultiJuicerDownloads = 49800
 
 const urlJs = 'https://registry.hub.docker.com/v2/repositories/bkimminich/juice-shop/'
 const urlJsCtf = 'https://registry.hub.docker.com/v2/repositories/bkimminich/juice-shop-ctf/'
@@ -79,14 +78,13 @@ const collectData = async (): Promise<void> => {
   }
 
   if (typeof dataMultiJuicer === 'number') {
-    const totalMultiJuicer = dataMultiJuicer + legacyMultiJuicerDownloads
     const prevCount = Array.isArray(prevMultiJuicerData) && typeof prevMultiJuicerData[1] === 'number'
       ? prevMultiJuicerData[1]
       : 0
 
     dockerDataMultiJuicer[date] = [
-      totalMultiJuicer - prevCount,
-      totalMultiJuicer
+      dataMultiJuicer - prevCount,
+      dataMultiJuicer
     ]
   }
 

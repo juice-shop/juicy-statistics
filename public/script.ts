@@ -108,30 +108,17 @@ function drawCharts (): void {
   // Docker MultiJuicer ----
   const docMultiJuicerArr = docMultiJuicer.split(',')
   const docMultiJuicerData = []
-  docMultiJuicerData.push(['Date', 'Legacy (multi-image)', 'Single-image'])
-  const cutOverDate = '2026-05-08'
+  docMultiJuicerData.push(['Date', 'Downloads'])
   for (let i = 0; i < docMultiJuicerArr.length; i += 2) {
-    const date = docMultiJuicerArr[i]
-    const count = parseInt(docMultiJuicerArr[i + 1], 10)
-    if (date < cutOverDate) {
-      docMultiJuicerData.push([date, count, 0])
-    } else {
-      docMultiJuicerData.push([date, 0, count])
-    }
+    docMultiJuicerData.push([docMultiJuicerArr[i], parseInt(docMultiJuicerArr[i + 1], 10)])
   }
   data = google.visualization.arrayToDataTable(docMultiJuicerData)
 
-  chart = new google.visualization.ComboChart(document.getElementById('docMultiJuicer'))
+  chart = new google.visualization.AreaChart(document.getElementById('docMultiJuicer'))
   chart.draw(data, {
-    title: 'Docker pulls (MultiJuicer)',
+    title: 'Docker pulls (ghcr.io/juice-shop/multi-juicer/multi-juicer)',
     lineWidth: 0.1,
     legend: { position: 'bottom' },
-    isStacked: true,
-    seriesType: 'area',
-    series: {
-      0: { color: '#e67e22' },
-      1: { color: '#2980b9' }
-    },
     vAxis: {
       scaleType: 'log'
     }
