@@ -1,40 +1,5 @@
 [
   {
-    "date": "2020-10-29",
-    "totalSpamPRs": 2,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2020-11-17",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2020-11-25",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2020-12-29",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2021-01-29",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2021-02-11",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
-    "date": "2021-05-04",
-    "totalSpamPRs": 0,
-    "totalSpamIssues": 1
-  },
-  {
     "date": "2021-06-09",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
@@ -3031,7 +2996,12 @@
   },
   {
     "date": "2026-11-16",
-    "totalSpamPRs": 1,
+    "totalSpamPRs": 3,
     "totalSpamIssues": 0
+  },
+  {
+    "date": "2026-11-17",
+    "totalSpamPRs": 0,
+    "totalSpamIssues": 6
   }
 ]
