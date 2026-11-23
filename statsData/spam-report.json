@@ -1,10 +1,5 @@
 [
   {
-    "date": "2021-06-09",
-    "totalSpamPRs": 1,
-    "totalSpamIssues": 0
-  },
-  {
     "date": "2021-06-18",
     "totalSpamPRs": 1,
     "totalSpamIssues": 0
@@ -3003,5 +2998,10 @@
     "date": "2026-11-17",
     "totalSpamPRs": 0,
     "totalSpamIssues": 6
+  },
+  {
+    "date": "2026-11-22",
+    "totalSpamPRs": 1,
+    "totalSpamIssues": 0
   }
 ]
